@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageHero from '../../components/PageHero.astro';
+import Verify from '../../components/Verify.astro';
+import Faq from '../../components/Faq.astro';
+import References from '../../components/References.astro';
+import LinkCard from '../../components/LinkCard.astro';
+import GetMatchedCta from '../../components/GetMatchedCta.astro';
+
+const path = '/spokane/adu-rules-spokane-county';
+const title = 'ADUs in Unincorporated Spokane County';
+const description =
+  'ADU rules for unincorporated Spokane County parcels, including the Building and Planning BP-75 (detached) and BP-76 (attached) sheets, parking, the permit process, and fees.';
+
+const src = 'https://www.spokanecounty.gov (Building and Planning, BP-75 and BP-76, county zoning code)';
+
+const faqItems = [
+  {
+    q: 'How do I know if my lot is in unincorporated Spokane County?',
+    a: 'If your parcel is not inside any city, the unincorporated Spokane County rules apply. Cities within the county, including Spokane, Spokane Valley, Cheney, Liberty Lake, and Airway Heights, have their own codes. Identifying your jurisdiction first is essential because the rules differ.',
+  },
+  {
+    q: 'What are the Spokane County BP-75 and BP-76 sheets?',
+    a: 'BP-75 and BP-76 are Spokane County Building and Planning information sheets for ADUs, BP-75 for detached units and BP-76 for attached units. They are the primary county documents to confirm current requirements.',
+  },
+  {
+    q: 'Do I need extra parking for an ADU in unincorporated Spokane County?',
+    a: 'County zoning has historically expected off-street parking for an ADU in addition to the main residence, but Washington HB 1337 limits some parking requirements. Confirm the current county parking standard before you plan around it.',
+  },
+];
+---
+<BaseLayout title={title} description={description} path={path}>
+  <Breadcrumbs items={[{ label: 'Spokane rules', href: '/spokane' }, { label: 'Unincorporated Spokane County', href: path }]} />
+  <PageHero
+    eyebrow="Jurisdiction"
+    title="ADUs in Unincorporated Spokane County"
+    lede="These rules apply to parcels in unincorporated Spokane County, meaning lots that are not inside any city. The county's primary ADU documents are the Building and Planning sheets BP-75 (detached) and BP-76 (attached)."
+    cta={{ href: '/get-matched', label: 'Get matched with a builder' }}
+    secondary={{ href: '/guides/can-i-build-an-adu-spokane', label: 'Can I build an ADU?' }}
+  />
+
+  <section class="container-prose rich-text pb-2">
+    <h2>Identify your jurisdiction first</h2>
+    <p>
+      Spokane County contains several incorporated cities, including Spokane, Spokane Valley, Cheney,
+      Liberty Lake, and Airway Heights. Each city writes its own ADU rules. The standards on this
+      page apply only to unincorporated county land. If your parcel is inside a city, use that city's
+      page instead. Getting this step right matters, because the allowed size, parking, and process
+      can differ between the county and a city.
+    </p>
+
+    <h2>Unincorporated Spokane County ADU rules at a glance</h2>
+    <p>
+      Each value is a verification placeholder until confirmed against the county Building and
+      Planning sheets and zoning code. Do not rely on a figure here until the operator replaces its
+      placeholder with a cited value.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Rule</th><th>Current unincorporated county standard</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Allowed ADU types</td>
+          <td><Verify item="which ADU types are permitted on unincorporated county parcels (detached per BP-75, attached per BP-76)" source={src} /></td>
+        </tr>
+        <tr>
+          <td>Maximum ADUs per lot</td>
+          <td><Verify item="the maximum number of ADUs per lot in unincorporated county after HB 1337" source={src} /></td>
+        </tr>
+        <tr>
+          <td>Maximum ADU size</td>
+          <td><Verify item="the maximum ADU size and any percent-of-primary cap in the county code" source={src} /></td>
+        </tr>
+        <tr>
+          <td>Maximum height</td>
+          <td><Verify item="the maximum ADU height in the county code" source={src} /></td>
+        </tr>
+        <tr>
+          <td>Setbacks</td>
+          <td><Verify item="ADU setbacks under the county zoning code" source={src} /></td>
+        </tr>
+        <tr>
+          <td>Off-street parking</td>
+          <td><Verify item="the off-street parking requirement for a county ADU, accounting for HB 1337 limits" source={src} /></td>
+        </tr>
+        <tr>
+          <td>Owner-occupancy</td>
+          <td><Verify item="whether owner-occupancy is required in the county, given HB 1337" source={src} /></td>
+        </tr>
+        <tr>
+          <td>Septic and water</td>
+          <td><Verify item="any septic capacity or water connection requirements that apply to a county ADU" source={src} /></td>
+        </tr>
+        <tr>
+          <td>Permit fees and charges</td>
+          <td><Verify item="current county ADU permit fees and any applicable charges" source={src} /></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>A note on septic and wells</h2>
+    <p>
+      Unlike most city lots, many unincorporated parcels rely on a septic system and sometimes a
+      private well rather than municipal sewer and water. Septic capacity can be a deciding
+      feasibility factor for a county ADU, so it is worth confirming early. The builder you are
+      matched with and the county health and building offices assess this.
+    </p>
+
+    <h2>The permit process in the county</h2>
+    <p>
+      ADU permits for unincorporated parcels run through Spokane County Building and Planning. The
+      BP-75 and BP-76 sheets outline the county's ADU requirements. Confirm the current submittal
+      checklist, review steps, and fees with the county. Our homeowner permit guide explains what to
+      expect.
+    </p>
+  </section>
+
+  <Faq items={faqItems} heading="Unincorporated Spokane County ADU questions" />
+
+  <References
+    sources={[
+      { label: 'Spokane County Building and Planning (spokanecounty.gov)', href: 'https://www.spokanecounty.gov', note: 'BP-75 (detached ADU), BP-76 (attached ADU), and the county zoning code.' },
+      { label: 'Washington HB 1337 and RCW 36.70A', href: 'https://app.leg.wa.gov', note: 'State ADU law and the Growth Management Act.' },
+    ]}
+  />
+
+  <section class="container-page py-8">
+    <h2 class="font-serif text-2xl font-semibold">Related</h2>
+    <div class="mt-6 grid gap-5 sm:grid-cols-3">
+      <LinkCard href="/guides/adu-permits-spokane" eyebrow="Guide" title="ADU Permits in Spokane" blurb="The homeowner walkthrough of the permit process." />
+      <LinkCard href="/guides/adu-cost-spokane" eyebrow="Guide" title="ADU Cost in Spokane" blurb="Dated cost ranges with basis." />
+      <LinkCard href="/guides/can-i-build-an-adu-spokane" eyebrow="Guide" title="Can I Build an ADU?" blurb="A feasibility checklist for your lot." />
+    </div>
+  </section>
+
+  <GetMatchedCta />
+</BaseLayout>

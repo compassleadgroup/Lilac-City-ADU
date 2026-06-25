@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageHero from '../../components/PageHero.astro';
+import Verify from '../../components/Verify.astro';
+import Faq from '../../components/Faq.astro';
+import References from '../../components/References.astro';
+import LinkCard from '../../components/LinkCard.astro';
+import GetMatchedCta from '../../components/GetMatchedCta.astro';
+
+const path = '/spokane/adu-rules-spokane-valley';
+const title = 'ADUs in Spokane Valley';
+const description =
+  'ADU rules for the City of Spokane Valley: allowed types, size, height, setbacks, parking, owner-occupancy under HB 1337, the permit center process, and fees.';
+
+const src = 'https://www.spokanevalleywa.gov (Spokane Valley Municipal Code and Permit Center)';
+
+const faqItems = [
+  {
+    q: 'Does Spokane Valley have its own ADU rules?',
+    a: 'Yes. The City of Spokane Valley is a separate jurisdiction with its own municipal code and permit center. Its ADU rules can differ from the City of Spokane and from unincorporated Spokane County, so confirm the Spokane Valley standards if your lot is inside the city.',
+  },
+  {
+    q: 'Where do I apply for an ADU permit in Spokane Valley?',
+    a: 'ADU permits in Spokane Valley are handled through the city permit center. The builder you are matched with manages the submittal and review with the city. Our Spokane ADU permits guide explains the general steps.',
+  },
+  {
+    q: 'Did HB 1337 change Spokane Valley ADU rules?',
+    a: 'Washington HB 1337 (2023) directed Growth Management Act jurisdictions to update ADU rules, which can affect ADU count, owner-occupancy, and near-transit parking. Confirm how Spokane Valley has implemented HB 1337 before relying on older figures.',
+  },
+];
+---
+<BaseLayout title={title} description={description} path={path}>
+  <Breadcrumbs items={[{ label: 'Spokane rules', href: '/spokane' }, { label: 'Spokane Valley', href: path }]} />
+  <PageHero
+    eyebrow="Jurisdiction"
+    title="ADUs in Spokane Valley"
+    lede="These rules apply to lots inside the City of Spokane Valley, which is a separate jurisdiction from the City of Spokane and from unincorporated Spokane County. Spokane Valley maintains its own municipal code and permit center."
+    cta={{ href: '/get-matched', label: 'Get matched with a builder' }}
+    secondary={{ href: '/guides/can-i-build-an-adu-spokane', label: 'Can I build an ADU?' }}
+  />
+
+  <section class="container-prose rich-text pb-2">
+    <h2>Spokane Valley is its own jurisdiction</h2>
+    <p>
+      Spokane Valley incorporated as its own city, so it does not follow the City of Spokane code or
+      the unincorporated county code. If your parcel is inside Spokane Valley city limits, use the
+      Spokane Valley Municipal Code and the city permit center as your sources. The standards below
+      are flagged for verification against those city sources.
+    </p>
+
+    <h2>Spokane Valley ADU rules at a glance</h2>
+    <p>
+      Each value is a verification placeholder until confirmed against the Spokane Valley Municipal
+      Code and permit center. Do not rely on a figure here until the operator replaces its
+      placeholder with a cited value.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Rule</th><th>Current Spokane Valley standard</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Allowed ADU types</td>
+          <td><Verify item="which ADU types Spokane Valley permits (detached, attached, junior ADU)" source={src} /></td>
+        </tr>
+        <tr>
+          <td>Maximum ADUs per lot</td>
+          <td><Verify item="the maximum number of ADUs per lot in Spokane Valley after HB 1337" source={src} /></td>
+        </tr>
+        <tr>
+          <td>Maximum ADU size</td>
+          <td><Verify item="the maximum ADU size and any percent-of-primary cap in Spokane Valley" source={src} /></td>
+        </tr>
+        <tr>
+          <td>Maximum height</td>
+          <td><Verify item="the maximum ADU height in Spokane Valley" source={src} /></td>
+        </tr>
+        <tr>
+          <td>Setbacks</td>
+          <td><Verify item="ADU setbacks under the Spokane Valley Municipal Code" source={src} /></td>
+        </tr>
+        <tr>
+          <td>Off-street parking</td>
+          <td><Verify item="the Spokane Valley off-street parking requirement, accounting for HB 1337 limits" source={src} /></td>
+        </tr>
+        <tr>
+          <td>Owner-occupancy</td>
+          <td><Verify item="whether owner-occupancy is required in Spokane Valley, given HB 1337" source={src} /></td>
+        </tr>
+        <tr>
+          <td>Permit fees and charges</td>
+          <td><Verify item="current Spokane Valley ADU permit fees and any applicable charges" source={src} /></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>The permit process in Spokane Valley</h2>
+    <p>
+      ADU permitting in Spokane Valley runs through the city permit center, which reviews zoning and
+      building requirements and issues permits. Confirm the current submittal checklist, review
+      timeline, and fees with the city. Our homeowner permit guide explains what to expect across the
+      Spokane-area jurisdictions.
+    </p>
+  </section>
+
+  <Faq items={faqItems} heading="Spokane Valley ADU questions" />
+
+  <References
+    sources={[
+      { label: 'City of Spokane Valley (spokanevalleywa.gov)', href: 'https://www.spokanevalleywa.gov', note: 'Spokane Valley Municipal Code and the city permit center.' },
+      { label: 'Washington HB 1337 and RCW 36.70A', href: 'https://app.leg.wa.gov', note: 'State ADU law and the Growth Management Act.' },
+    ]}
+  />
+
+  <section class="container-page py-8">
+    <h2 class="font-serif text-2xl font-semibold">Related</h2>
+    <div class="mt-6 grid gap-5 sm:grid-cols-3">
+      <LinkCard href="/guides/adu-permits-spokane" eyebrow="Guide" title="ADU Permits in Spokane" blurb="The homeowner walkthrough of the permit process." />
+      <LinkCard href="/guides/adu-cost-spokane" eyebrow="Guide" title="ADU Cost in Spokane" blurb="Dated cost ranges with basis." />
+      <LinkCard href="/guides/can-i-build-an-adu-spokane" eyebrow="Guide" title="Can I Build an ADU?" blurb="A feasibility checklist for your lot." />
+    </div>
+  </section>
+
+  <GetMatchedCta />
+</BaseLayout>

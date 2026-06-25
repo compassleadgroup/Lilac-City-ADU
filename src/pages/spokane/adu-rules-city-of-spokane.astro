@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageHero from '../../components/PageHero.astro';
+import Verify from '../../components/Verify.astro';
+import Faq from '../../components/Faq.astro';
+import References from '../../components/References.astro';
+import LinkCard from '../../components/LinkCard.astro';
+import GetMatchedCta from '../../components/GetMatchedCta.astro';
+
+const path = '/spokane/adu-rules-city-of-spokane';
+const title = 'ADUs in the City of Spokane';
+const description =
+  'Current ADU rules for homeowners inside Spokane city limits: allowed types, size, height, setbacks, parking, owner-occupancy under HB 1337, the permit process, and fees.';
+
+const src = 'https://my.spokanecity.org (Spokane Municipal Code and Development Services)';
+
+const faqItems = [
+  {
+    q: 'Do I need a permit to build an ADU in the City of Spokane?',
+    a: 'Yes. An ADU is a building project and requires permits from the City of Spokane. The builder you are matched with manages the permit process with the city. See our Spokane ADU permits guide for the steps.',
+  },
+  {
+    q: 'How many ADUs can I have on one lot in the City of Spokane?',
+    a: 'Washington HB 1337 (2023) changed how many ADUs jurisdictions must allow, and an older 2016 city overview that referenced a single-ADU limit may be out of date. Confirm the current count for your lot with the City of Spokane before relying on any figure.',
+  },
+  {
+    q: 'Is owner occupancy required for a Spokane ADU after HB 1337?',
+    a: 'HB 1337 limits owner-occupancy requirements for ADUs in covered jurisdictions, so older owner-occupancy language may no longer apply. Confirm the current City of Spokane rule before you plan around it.',
+  },
+];
+---
+<BaseLayout title={title} description={description} path={path} schema={undefined}>
+  <Breadcrumbs items={[{ label: 'Spokane rules', href: '/spokane' }, { label: 'City of Spokane', href: path }]} />
+  <PageHero
+    eyebrow="Jurisdiction"
+    title="ADUs in the City of Spokane"
+    lede="These rules apply to lots inside Spokane city limits. The City of Spokane is a Growth Management Act city in an Urban Growth Area, so Washington HB 1337 applies. Several older city figures may be superseded, so each specific below is flagged for verification against the current city source."
+    cta={{ href: '/get-matched', label: 'Get matched with a builder' }}
+    secondary={{ href: '/guides/can-i-build-an-adu-spokane', label: 'Can I build an ADU?' }}
+  />
+
+  <section class="container-prose rich-text pb-2">
+    <h2>How to use this page</h2>
+    <p>
+      Every regulatory specific on this page is shown as a verification placeholder until it is
+      confirmed against the City of Spokane Municipal Code and Development Services materials. We do
+      this deliberately: ADU rules carry real cost and legal consequences, and an older 2016 city
+      overview is likely stale after HB 1337. Do not rely on a figure here until the operator has
+      replaced its placeholder with a cited value.
+    </p>
+
+    <h2>City of Spokane ADU rules at a glance</h2>
+    <table>
+      <thead>
+        <tr><th>Rule</th><th>Current City of Spokane standard</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Allowed ADU types</td>
+          <td><Verify item="which ADU types are permitted (detached, attached, junior ADU)" source={src} /></td>
+        </tr>
+        <tr>
+          <td>Maximum ADUs per lot</td>
+          <td><Verify item="the maximum number of ADUs per lot after HB 1337 (a 2016 city overview referenced one per lot, likely superseded)" source={src} /></td>
+        </tr>
+        <tr>
+          <td>Maximum ADU size</td>
+          <td><Verify item="the maximum ADU size and any percent-of-primary-dwelling cap" source={src} /></td>
+        </tr>
+        <tr>
+          <td>Maximum height</td>
+          <td><Verify item="the maximum ADU height" source={src} /></td>
+        </tr>
+        <tr>
+          <td>Setbacks</td>
+          <td><Verify item="front, side, and rear setbacks for an ADU" source={src} /></td>
+        </tr>
+        <tr>
+          <td>Off-street parking</td>
+          <td><Verify item="whether off-street parking is required and any near-transit exemption under HB 1337" source={src} /></td>
+        </tr>
+        <tr>
+          <td>Owner-occupancy</td>
+          <td><Verify item="whether owner-occupancy is required, given HB 1337 limits on such requirements" source={src} /></td>
+        </tr>
+        <tr>
+          <td>Permit fees and any system development charges</td>
+          <td><Verify item="current ADU permit fees and any applicable system development charges" source={src} /></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>The HB 1337 stale-data flag</h2>
+    <p>
+      Washington HB 1337 (2023) directed Growth Management Act jurisdictions to update local ADU
+      rules, with a compliance timeline in 2025. Older City of Spokane documents written before that
+      update may no longer reflect current limits on ADU count, owner-occupancy, or near-transit
+      parking. Where an older city figure conflicts with HB 1337, treat the older figure as suspect
+      until confirmed. Our HB 1337 guide explains the law in plain language.
+    </p>
+
+    <h2>The permit process in the City of Spokane</h2>
+    <p>
+      ADU permitting in the city runs through the City of Spokane Development Services Center, which
+      reviews zoning and building requirements and issues the permits. The exact submittal
+      requirements, review steps, and fees should be confirmed with the city. Our homeowner permit
+      guide walks through what to expect without copying the application form.
+    </p>
+    <p>
+      City of Spokane Development Services Center address:
+      <Verify item="the current Development Services Center address (a city document lists 808 West Spokane Falls Boulevard, Spokane, WA 99201-3336)" source={src} />
+    </p>
+  </section>
+
+  <Faq items={faqItems} heading="City of Spokane ADU questions" />
+
+  <References
+    sources={[
+      { label: 'City of Spokane (my.spokanecity.org)', href: 'https://my.spokanecity.org', note: 'Spokane Municipal Code and Development Services ADU materials.' },
+      { label: 'City of Spokane documents (static.spokanecity.org)', href: 'https://static.spokanecity.org', note: 'Permit and overview documents. Confirm any 2016 figures are superseded.' },
+      { label: 'Washington HB 1337 and RCW 36.70A', href: 'https://app.leg.wa.gov', note: 'State ADU law and the Growth Management Act.' },
+    ]}
+  />
+
+  <section class="container-page py-8">
+    <h2 class="font-serif text-2xl font-semibold">Related</h2>
+    <div class="mt-6 grid gap-5 sm:grid-cols-3">
+      <LinkCard href="/guides/adu-permits-spokane" eyebrow="Guide" title="ADU Permits in Spokane" blurb="The homeowner walkthrough of the permit process." />
+      <LinkCard href="/guides/adu-cost-spokane" eyebrow="Guide" title="ADU Cost in Spokane" blurb="Dated cost ranges with basis." />
+      <LinkCard href="/guides/can-i-build-an-adu-spokane" eyebrow="Guide" title="Can I Build an ADU?" blurb="A feasibility checklist for your lot." />
+    </div>
+  </section>
+
+  <GetMatchedCta />
+</BaseLayout>

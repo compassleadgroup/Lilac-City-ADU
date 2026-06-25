@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageHero from '../../components/PageHero.astro';
+import LinkCard from '../../components/LinkCard.astro';
+import GetMatchedCta from '../../components/GetMatchedCta.astro';
+import { JURISDICTIONS } from '../../config';
+
+const path = '/spokane';
+const title = 'Spokane ADU Rules by Jurisdiction';
+const description =
+  'ADU rules differ by jurisdiction across the Spokane area. Find the rules for the City of Spokane, unincorporated Spokane County, and Spokane Valley.';
+---
+<BaseLayout title={title} description={description} path={path}>
+  <Breadcrumbs items={[{ label: 'Spokane rules', href: '/spokane' }]} />
+  <PageHero
+    eyebrow="Locations"
+    title="Spokane ADU rules by jurisdiction"
+    lede="ADU rules differ by jurisdiction. The first step is identifying which one your lot falls under, then reading the current rules for that jurisdiction."
+  />
+
+  <section class="container-page pb-4">
+    <div class="grid gap-5 sm:grid-cols-3">
+      {
+        JURISDICTIONS.map((j) => (
+          <LinkCard href={`/spokane/${j.slug}`} eyebrow="Jurisdiction" title={j.short} blurb={j.blurb} cta="See the rules" />
+        ))
+      }
+    </div>
+    <p class="mt-6 max-w-2xl text-sm text-basalt-soft">
+      Not sure which jurisdiction your property is in? Your county property record lists the
+      jurisdiction, and the cities of Spokane and Spokane Valley each maintain their own permit
+      offices. If your parcel is outside any city, the unincorporated Spokane County rules apply.
+    </p>
+  </section>
+
+  <GetMatchedCta variant="wheat" />
+</BaseLayout>
