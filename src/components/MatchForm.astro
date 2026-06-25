@@ -100,7 +100,7 @@ const label = 'block text-sm font-semibold text-basalt';
 
         <button
           type="submit"
-          class="inline-flex items-center justify-center rounded-md bg-bark px-6 py-3 font-semibold text-paper transition-colors hover:bg-bark-deep"
+          class="inline-flex items-center justify-center rounded-md bg-bark-cta px-6 py-3 font-semibold text-paper transition-colors hover:bg-bark-cta-deep"
         >
           Get matched
         </button>
@@ -141,7 +141,7 @@ const label = 'block text-sm font-semibold text-basalt';
         }
       } catch (err) {
         if (status) {
-          status.className = 'text-sm font-semibold text-bark-deep';
+          status.className = 'text-sm font-semibold text-bark-cta-deep';
           status.textContent =
             'Something went wrong. Please try again, or email us and we will follow up.';
         }

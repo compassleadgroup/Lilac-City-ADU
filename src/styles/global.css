@@ -12,8 +12,11 @@
   --color-basalt-soft: #3a3d39;
   --color-ponderosa: #3E5233; /* primary brand */
   --color-ponderosa-deep: #2f3f27;
-  --color-bark: #B5703B; /* single accent, CTAs only */
+  --color-bark: #B5703B; /* warm bark amber accent (borders, marks, decorative) */
   --color-bark-deep: #9c5d2e;
+  /* Deeper bark used behind CTA button text so paper-on-bark meets WCAG AA (4.5:1). */
+  --color-bark-cta: #8a4f24;
+  --color-bark-cta-deep: #73401d;
   --color-wheat: #E3D6B8; /* soft secondary surface */
   --color-wheat-soft: #efe7d3;
   --color-paper: #F7F4EE; /* base background */

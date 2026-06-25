@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageHero from '../components/PageHero.astro';
+import { SITE } from '../config';
+
+const path = '/terms';
+const title = 'Terms and TCPA Disclosures';
+const description =
+  'The terms of use for Lilac City ADU and the TCPA consent and contact disclosures that apply to the get-matched form.';
+const effective = 'June 2026';
+---
+<BaseLayout title={title} description={description} path={path}>
+  <Breadcrumbs items={[{ label: 'Terms and TCPA', href: path }]} />
+  <PageHero eyebrow="Legal" title="Terms and TCPA disclosures" lede={`Effective ${effective}. These terms govern your use of ${SITE.name} and explain the consent that applies when you contact us.`} />
+
+  <section class="container-prose rich-text pb-10">
+    <p class="text-sm text-basalt-soft">
+      This is a general template provided for transparency. The operator should have it reviewed by
+      qualified counsel before promotion.
+    </p>
+
+    <h2>About the service</h2>
+    <p>
+      {SITE.name} is operated by {SITE.entityLegal}, doing business as {SITE.entityDba}. We are a
+      marketing and matching service that connects homeowners with independent licensed local ADU
+      builders. We do not design, permit, or build, and we are not a contractor, architect, engineer,
+      or lender. All construction is performed by independent licensed third-party builders that you
+      contract with directly.
+    </p>
+
+    <h2>No professional advice and no guarantees</h2>
+    <p>
+      Content on this site is general information, not legal, financial, or construction advice. We do
+      not guarantee any price, timeline, financing approval, permit outcome, or the work of any
+      builder. Regulatory and cost details should be confirmed with the relevant jurisdiction and a
+      licensed professional before you act.
+    </p>
+
+    <h2>Independent builders</h2>
+    <p>
+      The builder you are matched with is an independent business. We are not responsible for their
+      work, contracts, or conduct. Your agreement for design, permitting, and construction is between
+      you and that builder.
+    </p>
+
+    <h2>Acceptable use</h2>
+    <p>You agree to provide accurate information and to use the site lawfully and only for your own ADU project research.</p>
+
+    <h2>Intellectual property</h2>
+    <p>The site content and brand are owned by {SITE.entityLegal}. You may not copy or reuse it without permission.</p>
+
+    <h2>Limitation of liability</h2>
+    <p>
+      To the fullest extent permitted by law, {SITE.entityLegal} is not liable for indirect,
+      incidental, or consequential damages arising from your use of the site or from any builder you
+      are matched with.
+    </p>
+
+    <h2>Governing law</h2>
+    <p>These terms are governed by the laws of the State of Washington.</p>
+
+    <h2>TCPA consent and contact disclosures</h2>
+    <p>
+      When you submit the get-matched form and check the consent box, you agree that {SITE.entityDba}
+      and the licensed local builder you are matched with may contact you about your ADU project. The
+      following disclosures apply:
+    </p>
+    <ul>
+      <li>You consent to be contacted by phone call, text message, and email at the number and address you provide.</li>
+      <li>Contact may be made using automated technology where applicable.</li>
+      <li>Consent is not a condition of any purchase.</li>
+      <li>Message and data rates may apply, and message frequency may vary.</li>
+      <li>You can opt out at any time by replying STOP to a text, unsubscribing from an email, or asking us to stop contacting you.</li>
+      <li>The consent checkbox is never pre-checked. Submitting without checking it means you have not provided consent to be contacted by those methods.</li>
+    </ul>
+
+    <h2>Changes to these terms</h2>
+    <p>We may update these terms. The effective date above reflects the latest version.</p>
+
+    <h2>Contact</h2>
+    <p>
+      {SITE.entityLegal} doing business as {SITE.entityDba}.<br />
+      Operating address: {SITE.addressPlaceholder}<br />
+      Email: {SITE.emailPlaceholder}<br />
+      Phone: {SITE.phonePlaceholder}
+    </p>
+  </section>
+</BaseLayout>
