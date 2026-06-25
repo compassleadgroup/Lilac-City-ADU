@@ -1,0 +1,19 @@
+---
+// Link styled as a button. The bark accent (primary) is reserved for CTAs.
+interface Props {
+  href: string;
+  variant?: 'primary' | 'secondary' | 'ghost' | 'ghost-light';
+  class?: string;
+  [key: string]: unknown;
+}
+const { href, variant = 'primary', class: cls = '', ...rest } = Astro.props;
+const base =
+  'inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold no-underline transition-colors';
+const variants: Record<string, string> = {
+  primary: 'bg-bark text-paper hover:bg-bark-deep',
+  secondary: 'bg-ponderosa text-paper hover:bg-ponderosa-deep',
+  ghost: 'border border-ponderosa text-ponderosa hover:bg-wheat-soft',
+  'ghost-light': 'border border-paper/60 text-paper hover:bg-paper/10',
+};
+---
+<a href={href} class={`${base} ${variants[variant]} ${cls}`} {...rest}><slot /></a>

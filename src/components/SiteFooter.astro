@@ -1,0 +1,96 @@
+---
+// Footer: full sitemap plus the required entity disclaimer.
+import { SITE, SERVICES, JURISDICTIONS, GUIDES } from '../config';
+const year = 2026;
+---
+<footer class="mt-20 bg-basalt text-paper">
+  <div class="container-page grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-5">
+    <div class="lg:col-span-1">
+      <div class="flex items-center gap-2">
+        <img src="/favicon.svg" alt="" width="30" height="30" class="rounded" />
+        <span class="font-serif text-lg font-semibold">{SITE.name}</span>
+      </div>
+      <p class="mt-3 text-sm text-paper/70">
+        We connect Spokane-area homeowners with licensed local ADU builders. Free to
+        homeowners. We are paid by the builder, not by you.
+      </p>
+    </div>
+
+    <nav aria-label="ADU types">
+      <h2 class="font-serif text-base font-semibold text-wheat">ADU types</h2>
+      <ul class="mt-3 space-y-2 text-sm">
+        {
+          SERVICES.map((s) => (
+            <li>
+              <a href={`/services/${s.slug}`} class="text-paper/80 no-underline hover:text-paper">
+                {s.nav}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <nav aria-label="Spokane rules">
+      <h2 class="font-serif text-base font-semibold text-wheat">Spokane rules</h2>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li>
+          <a href="/spokane" class="text-paper/80 no-underline hover:text-paper">All locations</a>
+        </li>
+        {
+          JURISDICTIONS.map((j) => (
+            <li>
+              <a href={`/spokane/${j.slug}`} class="text-paper/80 no-underline hover:text-paper">
+                {j.short}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <nav aria-label="Guides">
+      <h2 class="font-serif text-base font-semibold text-wheat">Guides</h2>
+      <ul class="mt-3 space-y-2 text-sm">
+        {
+          GUIDES.map((g) => (
+            <li>
+              <a href={`/guides/${g.slug}`} class="text-paper/80 no-underline hover:text-paper">
+                {g.nav}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <nav aria-label="Company">
+      <h2 class="font-serif text-base font-semibold text-wheat">Company</h2>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li><a href="/about" class="text-paper/80 no-underline hover:text-paper">How it works</a></li>
+        <li><a href="/get-matched" class="text-paper/80 no-underline hover:text-paper">Get matched</a></li>
+        <li><a href="/faq" class="text-paper/80 no-underline hover:text-paper">FAQ</a></li>
+        <li><a href="/privacy" class="text-paper/80 no-underline hover:text-paper">Privacy policy</a></li>
+        <li><a href="/terms" class="text-paper/80 no-underline hover:text-paper">Terms and TCPA</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Entity disclaimer (required on every page) -->
+  <div class="border-t border-paper/15">
+    <div class="container-page py-8 text-xs leading-relaxed text-paper/70">
+      <p>
+        {SITE.entityLegal}, operating publicly as {SITE.entityDba}. This site is an
+        advertising and lead-referral service. All construction is performed by independent
+        licensed third-party builders the homeowner contracts with directly. {SITE.name}
+        does not design, permit, or build, and is not a contractor, an architect, or a
+        lender. Information on this site is general and is not legal, financial, or
+        construction advice. Regulatory and cost figures should be confirmed with the
+        relevant jurisdiction and a licensed professional before you make decisions.
+      </p>
+      <p class="mt-3 text-paper/50">
+        &copy; {year} {SITE.entityLegal}. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>

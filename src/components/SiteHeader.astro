@@ -1,0 +1,76 @@
+---
+// Header: required disclosure strip, brand, primary nav, and the get-matched CTA.
+// Mobile navigation uses a native <details> disclosure so there is zero JavaScript.
+import { SITE, NAV } from '../config';
+import Button from './Button.astro';
+---
+<header>
+  <!-- Disclosure strip (required on every page) -->
+  <div class="bg-basalt text-paper">
+    <p class="container-page py-2 text-center text-[0.8rem] leading-snug">
+      {SITE.name} is a marketing and matching service that connects homeowners with
+      independent licensed local ADU builders. It is not a contractor.
+    </p>
+  </div>
+
+  <div class="border-b border-wheat bg-paper">
+    <div class="container-page flex items-center justify-between gap-4 py-3">
+      <a href="/" class="flex items-center gap-2 no-underline">
+        <img src="/favicon.svg" alt="" width="34" height="34" class="rounded" />
+        <span class="font-serif text-xl font-semibold text-basalt">{SITE.name}</span>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav aria-label="Primary" class="hidden items-center gap-6 lg:flex">
+        {
+          NAV.map((item) => (
+            <a
+              href={item.href}
+              class="font-semibold text-basalt no-underline hover:text-ponderosa"
+            >
+              {item.label}
+            </a>
+          ))
+        }
+        <Button href="/get-matched" class="px-4 py-2">Get matched</Button>
+      </nav>
+
+      <!-- Mobile nav -->
+      <details class="relative lg:hidden">
+        <summary
+          class="flex cursor-pointer list-none items-center gap-2 rounded-md border border-ponderosa px-3 py-2 font-semibold text-ponderosa"
+          aria-label="Open menu"
+        >
+          Menu
+        </summary>
+        <div
+          class="absolute right-0 z-20 mt-2 w-72 rounded-lg border border-wheat bg-paper p-4 shadow-lg"
+        >
+          <ul class="space-y-3">
+            {
+              NAV.map((item) => (
+                <li>
+                  <a href={item.href} class="font-semibold text-basalt no-underline">
+                    {item.label}
+                  </a>
+                  {'children' in item && item.children ? (
+                    <ul class="mt-1 space-y-1 border-l border-wheat pl-3">
+                      {item.children.map((child) => (
+                        <li>
+                          <a href={child.href} class="text-sm text-basalt-soft no-underline">
+                            {child.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </li>
+              ))
+            }
+          </ul>
+          <Button href="/get-matched" class="mt-4 w-full">Get matched</Button>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>

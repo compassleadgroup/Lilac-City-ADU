@@ -1,0 +1,28 @@
+---
+// Reusable get-matched call to action band.
+import Button from './Button.astro';
+interface Props {
+  title?: string;
+  text?: string;
+  variant?: 'ponderosa' | 'wheat';
+}
+const {
+  title = 'Get matched with a Spokane ADU builder',
+  text = 'Tell us about your lot and project. We connect you with a licensed local builder who serves your jurisdiction. It is free to you, with no obligation.',
+  variant = 'ponderosa',
+} = Astro.props;
+const isDark = variant === 'ponderosa';
+---
+<section class={isDark ? 'bg-ponderosa text-paper' : 'bg-wheat text-basalt'}>
+  <div class="container-page py-12 sm:py-14">
+    <div class="flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between">
+      <div class="max-w-2xl">
+        <h2 class={`font-serif text-2xl font-semibold ${isDark ? 'text-paper' : 'text-basalt'}`}>
+          {title}
+        </h2>
+        <p class={`mt-2 ${isDark ? 'text-paper/85' : 'text-basalt-soft'}`}>{text}</p>
+      </div>
+      <Button href="/get-matched" variant="primary" class="shrink-0">Get matched</Button>
+    </div>
+  </div>
+</section>

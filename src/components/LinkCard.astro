@@ -1,0 +1,26 @@
+---
+// Card link used in service, location, and guide grids.
+interface Props {
+  href: string;
+  title: string;
+  blurb?: string;
+  eyebrow?: string;
+  cta?: string;
+}
+const { href, title, blurb, eyebrow, cta = 'Read more' } = Astro.props;
+---
+<a
+  href={href}
+  class="group flex h-full flex-col rounded-lg border border-wheat bg-paper p-5 no-underline transition-colors hover:border-ponderosa hover:bg-wheat-soft"
+>
+  {
+    eyebrow ? (
+      <p class="text-xs font-semibold uppercase tracking-wide text-ponderosa">{eyebrow}</p>
+    ) : null
+  }
+  <h3 class="mt-1 font-serif text-lg font-semibold text-basalt">{title}</h3>
+  {blurb ? <p class="mt-1 flex-1 text-sm text-basalt-soft">{blurb}</p> : <span class="flex-1" />}
+  <span class="mt-3 inline-block text-sm font-semibold text-ponderosa group-hover:text-ponderosa-deep">
+    {cta} &rarr;
+  </span>
+</a>

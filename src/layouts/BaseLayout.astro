@@ -1,0 +1,86 @@
+---
+// Shared layout shell for every page.
+// Loads the design system and self-hosted fonts, sets head metadata,
+// injects site-wide Organization schema plus any page-level whitelisted schema,
+// and renders the required header disclosure strip and footer disclaimer.
+import '../styles/global.css';
+import '@fontsource-variable/fraunces';
+import '@fontsource-variable/source-sans-3';
+import { SITE } from '../config';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import JsonLd from '../components/JsonLd.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  noindex?: boolean;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+  ogType?: string;
+}
+const { title, description, path, noindex = false, schema, ogType = 'website' } = Astro.props;
+const canonical = `${SITE.domain}${path === '/' ? '/' : path}`;
+const fullTitle = path === '/' ? `${SITE.name}: ${SITE.tagline}` : `${title} | ${SITE.name}`;
+
+// Site-wide Organization schema (whitelist: Organization). No LocalBusiness,
+// no Review, no AggregateRating, no address or telephone until operator-confirmed.
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: SITE.name,
+  legalName: SITE.entityLegal,
+  alternateName: SITE.entityDba,
+  url: SITE.domain,
+  description: SITE.description,
+  areaServed: [
+    'City of Spokane, WA',
+    'Unincorporated Spokane County, WA',
+    'City of Spokane Valley, WA',
+  ],
+  knowsAbout: [
+    'Accessory dwelling units',
+    'ADU permitting in Spokane',
+    'Washington HB 1337',
+    'ADU cost in Spokane',
+  ],
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex ? <meta name="robots" content="noindex, nofollow" /> : null}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#3E5233" />
+    <meta name="generator" content={Astro.generator} />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+
+    <!-- Analytics: GA4 is delivered through Cloudflare Zaraz, not hardcoded here. -->
+    <JsonLd schema={orgSchema} />
+    {schema ? <JsonLd schema={schema} /> : null}
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-basalt focus:px-4 focus:py-2 focus:font-semibold focus:text-paper"
+    >
+      Skip to content
+    </a>
+    <SiteHeader />
+    <main id="main">
+      <slot />
+    </main>
+    <SiteFooter />
+  </body>
+</html>

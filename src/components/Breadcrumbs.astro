@@ -1,0 +1,43 @@
+---
+// Visual breadcrumb plus BreadcrumbList JSON-LD (whitelisted schema).
+import { SITE } from '../config';
+import JsonLd from './JsonLd.astro';
+
+interface Crumb {
+  label: string;
+  href: string;
+}
+interface Props {
+  items: Crumb[];
+}
+const { items } = Astro.props;
+const all: Crumb[] = [{ label: 'Home', href: '/' }, ...items];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: all.map((c, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: c.label,
+    item: `${SITE.domain}${c.href === '/' ? '' : c.href}`,
+  })),
+};
+---
+<nav aria-label="Breadcrumb" class="container-page pt-6 text-sm">
+  <ol class="flex flex-wrap items-center gap-x-2 gap-y-1 text-basalt-soft">
+    {
+      all.map((c, i) => (
+        <li class="flex items-center gap-2">
+          {i < all.length - 1 ? (
+            <a href={c.href} class="no-underline hover:text-ponderosa">{c.label}</a>
+          ) : (
+            <span aria-current="page" class="font-semibold text-basalt">{c.label}</span>
+          )}
+          {i < all.length - 1 ? <span aria-hidden="true" class="text-wheat">/</span> : null}
+        </li>
+      ))
+    }
+  </ol>
+</nav>
+<JsonLd schema={schema} />

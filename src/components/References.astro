@@ -1,0 +1,32 @@
+---
+// Per-page References section. Lists the primary sources a page relies on.
+// Outbound .gov citations support the accuracy mandate and E-E-A-T.
+interface Source {
+  label: string;
+  href: string;
+  note?: string;
+}
+interface Props {
+  sources: Source[];
+}
+const { sources } = Astro.props;
+---
+<section class="container-prose py-10">
+  <h2 class="font-serif text-xl font-semibold">References and primary sources</h2>
+  <p class="mt-2 text-sm text-basalt-soft">
+    Regulatory and fee specifics on this page should be confirmed against the current primary
+    sources below. Items marked VERIFY are pending operator confirmation before promotion.
+  </p>
+  <ul class="mt-4 space-y-2 text-sm">
+    {
+      sources.map((s) => (
+        <li>
+          <a href={s.href} rel="nofollow noopener" target="_blank" class="font-semibold underline">
+            {s.label}
+          </a>
+          {s.note ? <span class="text-basalt-soft"> {s.note}</span> : null}
+        </li>
+      ))
+    }
+  </ul>
+</section>

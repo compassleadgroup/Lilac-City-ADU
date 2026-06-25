@@ -1,6 +1,152 @@
 /*
-  Tailwind CSS v4 entry point.
-  Design tokens for the "Basalt and Ponderosa" system are added in Batch 2.
-  For now this only pulls in Tailwind so the scaffold builds.
+  Basalt and Ponderosa design system.
+  Inland Northwest identity for Lilac City ADU. Do not reuse these tokens elsewhere.
+  Tailwind CSS v4, theme tokens declared with @theme so utilities like
+  bg-ponderosa, text-basalt, font-serif are generated automatically.
 */
 @import "tailwindcss";
+
+@theme {
+  /* Palette */
+  --color-basalt: #2B2D2A; /* primary text, dark sections */
+  --color-basalt-soft: #3a3d39;
+  --color-ponderosa: #3E5233; /* primary brand */
+  --color-ponderosa-deep: #2f3f27;
+  --color-bark: #B5703B; /* single accent, CTAs only */
+  --color-bark-deep: #9c5d2e;
+  --color-wheat: #E3D6B8; /* soft secondary surface */
+  --color-wheat-soft: #efe7d3;
+  --color-paper: #F7F4EE; /* base background */
+  --color-paper-dim: #efeae0;
+
+  /* Type */
+  --font-sans: "Source Sans 3 Variable", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: "Fraunces Variable", ui-serif, Georgia, "Times New Roman", serif;
+
+  /* Layout */
+  --spacing-gutter: 1.5rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-basalt);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    color: var(--color-basalt);
+    line-height: 1.15;
+    font-weight: 600;
+    text-wrap: balance;
+  }
+
+  a {
+    color: var(--color-ponderosa);
+    text-underline-offset: 2px;
+  }
+  a:hover {
+    color: var(--color-ponderosa-deep);
+  }
+
+  /* Visible focus state for keyboard users (accessibility). */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 3px solid var(--color-bark);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  :target {
+    scroll-margin-top: 6rem;
+  }
+}
+
+@layer components {
+  /* Page width container. */
+  .container-page {
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: var(--spacing-gutter);
+  }
+  .container-prose {
+    width: 100%;
+    max-width: 46rem;
+    margin-inline: auto;
+    padding-inline: var(--spacing-gutter);
+  }
+
+  /* Long-form content styling, used on guide and policy pages. */
+  .rich-text > * + * {
+    margin-top: 1.1rem;
+  }
+  .rich-text h2 {
+    font-size: 1.6rem;
+    margin-top: 2.75rem;
+    margin-bottom: 0.25rem;
+    padding-top: 0.5rem;
+  }
+  .rich-text h3 {
+    font-size: 1.25rem;
+    margin-top: 1.75rem;
+  }
+  .rich-text p,
+  .rich-text li {
+    color: #34352f;
+  }
+  .rich-text ul {
+    list-style: disc;
+    padding-left: 1.4rem;
+  }
+  .rich-text ol {
+    list-style: decimal;
+    padding-left: 1.4rem;
+  }
+  .rich-text li + li {
+    margin-top: 0.4rem;
+  }
+  .rich-text a {
+    text-decoration: underline;
+    font-weight: 600;
+  }
+  .rich-text table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+  .rich-text th,
+  .rich-text td {
+    border: 1px solid var(--color-wheat);
+    padding: 0.55rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  .rich-text th {
+    background-color: var(--color-wheat-soft);
+    font-weight: 600;
+  }
+
+  /* Verify placeholder marker. The literal [VERIFY: ...] text stays in the
+     source per the accuracy mandate; this only makes it easy to spot. */
+  .verify {
+    background-color: #fff3d6;
+    border-bottom: 2px dotted var(--color-bark);
+    padding: 0 0.15rem;
+    font-style: normal;
+  }
+}
