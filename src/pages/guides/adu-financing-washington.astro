@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageHero from '../../components/PageHero.astro';
+import Faq from '../../components/Faq.astro';
+import LinkCard from '../../components/LinkCard.astro';
+import GetMatchedCta from '../../components/GetMatchedCta.astro';
+
+const path = '/guides/adu-financing-washington';
+const title = 'ADU Financing Options in Washington';
+const description =
+  'A neutral overview of common ways Washington homeowners finance an ADU, including home equity, renovation loans, and construction loans. Not financial advice, no approval promises.';
+
+const faqItems = [
+  {
+    q: 'How do I finance an ADU in Washington?',
+    a: 'Homeowners use a range of options, including home equity loans and lines of credit, cash-out refinancing, renovation loans, and construction loans. The right fit depends on your equity, budget, and goals. This is general information, not financial advice. Talk with a licensed lender about your situation.',
+  },
+  {
+    q: 'Can you guarantee I will be approved for ADU financing?',
+    a: 'No. We are a matching and marketing service, not a lender, and we do not promise financing approval or any specific terms. Approval and rates are decided by the lender you work with based on your circumstances.',
+  },
+  {
+    q: 'Does an ADU add value that helps with financing?',
+    a: 'An ADU can add rental income potential and property value, which some homeowners factor into their plans. How a lender treats that depends on the loan program and your situation. Confirm details with a licensed lender.',
+  },
+];
+---
+<BaseLayout title={title} description={description} path={path}>
+  <Breadcrumbs items={[{ label: 'Guides', href: '/guides/adu-cost-spokane' }, { label: 'ADU Financing', href: path }]} />
+  <PageHero
+    eyebrow="Guide"
+    title="ADU financing options in Washington"
+    lede="There are several common ways Washington homeowners pay for an ADU. This is a neutral overview to help you ask better questions. It is general information, not financial advice, and we make no promises about approval or terms."
+    cta={{ href: '/get-matched', label: 'Get matched with a builder' }}
+    secondary={{ href: '/guides/adu-cost-spokane', label: 'ADU cost guide' }}
+  />
+
+  <section class="container-prose rich-text pb-2">
+    <h2>A note before we start</h2>
+    <p>
+      Lilac City ADU is not a lender and does not give financial advice. The options below are
+      described in general terms so you can have an informed conversation with a licensed lender. We
+      do not promise approval, rates, or terms, and nothing here is a commitment to lend.
+    </p>
+
+    <h2>Common ways homeowners finance an ADU</h2>
+    <ul>
+      <li><strong>Home equity loan or line of credit (HELOC).</strong> Borrows against the equity in your home. Common when you have built up equity.</li>
+      <li><strong>Cash-out refinance.</strong> Replaces your mortgage with a larger one and returns the difference in cash. Worth comparing against current rates.</li>
+      <li><strong>Renovation loan.</strong> Loan programs designed to finance improvements based on the home's value after the work is done.</li>
+      <li><strong>Construction loan.</strong> Short-term financing that funds the build in stages, often converted to a mortgage afterward.</li>
+      <li><strong>Cash or savings.</strong> Some homeowners self-fund part or all of the project.</li>
+    </ul>
+
+    <h2>Questions to ask a lender</h2>
+    <ul>
+      <li>Which loan programs fit an ADU project, and what are the rate and term differences?</li>
+      <li>How is the loan amount determined, by current value or after-completion value?</li>
+      <li>How are funds released during construction?</li>
+      <li>What are the total costs, including fees and closing costs?</li>
+      <li>How does potential ADU rental income factor in, if at all?</li>
+    </ul>
+
+    <h2>How financing fits the matching process</h2>
+    <p>
+      Financing and construction are separate. We connect you with a licensed local builder for the
+      build. You arrange financing with a licensed lender of your choosing. Knowing your budget and
+      financing path early helps the builder scope a realistic project.
+    </p>
+  </section>
+
+  <Faq items={faqItems} heading="ADU financing questions" />
+
+  <section class="container-page py-8">
+    <h2 class="font-serif text-2xl font-semibold">Related</h2>
+    <div class="mt-6 grid gap-5 sm:grid-cols-3">
+      <LinkCard href="/guides/adu-cost-spokane" eyebrow="Guide" title="ADU Cost in Spokane" blurb="Know the budget before you finance." />
+      <LinkCard href="/guides/can-i-build-an-adu-spokane" eyebrow="Guide" title="Can I Build an ADU?" blurb="Confirm feasibility first." />
+      <LinkCard href="/get-matched" eyebrow="Next step" title="Get matched" blurb="Talk with a licensed local builder." />
+    </div>
+  </section>
+
+  <GetMatchedCta />
+</BaseLayout>

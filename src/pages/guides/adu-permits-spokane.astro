@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageHero from '../../components/PageHero.astro';
+import Verify from '../../components/Verify.astro';
+import Faq from '../../components/Faq.astro';
+import References from '../../components/References.astro';
+import LinkCard from '../../components/LinkCard.astro';
+import GetMatchedCta from '../../components/GetMatchedCta.astro';
+
+const path = '/guides/adu-permits-spokane';
+const title = 'ADU Permits in Spokane: A Homeowner Guide';
+const description =
+  'A plain-language walkthrough of the ADU permit process in the Spokane area: who issues permits, the general steps, what to expect, and common holdups. Not the application form.';
+
+const faqItems = [
+  {
+    q: 'Do you need a permit for an ADU in Washington state?',
+    a: 'Yes. An ADU is a dwelling, so it requires building and related permits from the jurisdiction that governs your lot. The licensed local builder you are matched with manages the permit process. This guide explains the general steps rather than reproducing any application form.',
+  },
+  {
+    q: 'Who issues the ADU permit in my area?',
+    a: 'It depends on your jurisdiction. The City of Spokane issues through its Development Services Center, unincorporated parcels go through Spokane County Building and Planning, and lots inside Spokane Valley go through the Spokane Valley permit center.',
+  },
+  {
+    q: 'How long does ADU permitting take in Spokane?',
+    a: 'Timelines vary with the jurisdiction, the completeness of the submittal, and the review workload. Confirm the current review time with your jurisdiction. A complete, well-prepared application from an experienced builder helps avoid the most common delays.',
+  },
+];
+---
+<BaseLayout title={title} description={description} path={path}>
+  <Breadcrumbs items={[{ label: 'Guides', href: '/guides/adu-cost-spokane' }, { label: 'ADU Permits', href: path }]} />
+  <PageHero
+    eyebrow="Guide"
+    title="ADU permits in Spokane: a homeowner guide"
+    lede="This is a plain-language walkthrough of how ADU permitting generally works across the Spokane-area jurisdictions. It sits alongside the official documents, it does not replace them. The builder you are matched with handles the actual submittal and review."
+    cta={{ href: '/get-matched', label: 'Get matched with a builder' }}
+    secondary={{ href: '/spokane', label: 'Rules by jurisdiction' }}
+  />
+
+  <section class="container-prose rich-text pb-2">
+    <h2>Who issues ADU permits in the Spokane area</h2>
+    <ul>
+      <li><strong>City of Spokane:</strong> the City of Spokane Development Services Center.</li>
+      <li><strong>Unincorporated Spokane County:</strong> Spokane County Building and Planning (see the BP-75 and BP-76 sheets).</li>
+      <li><strong>Spokane Valley:</strong> the City of Spokane Valley permit center.</li>
+    </ul>
+    <p>
+      Your jurisdiction depends on where the lot sits. Identify it first, because the process, forms,
+      and fees differ. See our rules pages for each jurisdiction.
+    </p>
+
+    <h2>The general permit process, step by step</h2>
+    <ol>
+      <li><strong>Confirm feasibility.</strong> Check zoning, lot, setbacks, and utilities for your jurisdiction. Our feasibility guide covers this.</li>
+      <li><strong>Design and plans.</strong> The builder prepares construction drawings, a site plan, and any structural and energy documents.</li>
+      <li><strong>Application submittal.</strong> The builder submits the permit application and plans to your jurisdiction.</li>
+      <li><strong>Plan review.</strong> The jurisdiction reviews zoning and building code compliance and may return comments.</li>
+      <li><strong>Corrections.</strong> The builder responds to review comments and resubmits as needed.</li>
+      <li><strong>Permit issuance and fees.</strong> Once approved, the jurisdiction issues the permit and collects fees and any charges.</li>
+      <li><strong>Construction and inspections.</strong> The builder constructs the ADU with inspections at required stages.</li>
+      <li><strong>Final approval.</strong> A final inspection and certificate of occupancy allow the unit to be used.</li>
+    </ol>
+
+    <h2>What permits and fees to expect</h2>
+    <p>
+      An ADU typically involves a building permit and related trade permits (mechanical, plumbing,
+      electrical), plus any applicable charges. The specific fees and any system development charges
+      are confirmed against each jurisdiction fee schedule.
+    </p>
+    <ul>
+      <li>City of Spokane permit fees: <Verify item="current City of Spokane ADU permit fees and charges" source="https://my.spokanecity.org" /></li>
+      <li>Spokane County permit fees: <Verify item="current Spokane County ADU permit fees and charges" source="https://www.spokanecounty.gov" /></li>
+      <li>Spokane Valley permit fees: <Verify item="current Spokane Valley ADU permit fees and charges" source="https://www.spokanevalleywa.gov" /></li>
+    </ul>
+
+    <h2>Common holdups</h2>
+    <ul>
+      <li>Incomplete submittals that trigger extra review cycles.</li>
+      <li>Setback or size issues that conflict with the zoning standard.</li>
+      <li>Utility capacity questions, including septic on county lots.</li>
+      <li>Stormwater or drainage requirements on some sites.</li>
+      <li>Outdated assumptions from pre-HB-1337 documents.</li>
+    </ul>
+  </section>
+
+  <Faq items={faqItems} heading="ADU permit questions" />
+
+  <References
+    sources={[
+      { label: 'City of Spokane Development Services (my.spokanecity.org)', href: 'https://my.spokanecity.org' },
+      { label: 'Spokane County Building and Planning (spokanecounty.gov)', href: 'https://www.spokanecounty.gov', note: 'BP-75 and BP-76.' },
+      { label: 'City of Spokane Valley permit center (spokanevalleywa.gov)', href: 'https://www.spokanevalleywa.gov' },
+    ]}
+  />
+
+  <section class="container-page py-8">
+    <h2 class="font-serif text-2xl font-semibold">Related</h2>
+    <div class="mt-6 grid gap-5 sm:grid-cols-3">
+      <LinkCard href="/guides/can-i-build-an-adu-spokane" eyebrow="Guide" title="Can I Build an ADU?" blurb="Feasibility before you apply." />
+      <LinkCard href="/spokane" eyebrow="Locations" title="Rules by jurisdiction" blurb="Process and fees by jurisdiction." />
+      <LinkCard href="/guides/hb-1337-spokane" eyebrow="Guide" title="HB 1337 Explained" blurb="The 2023 state law in plain language." />
+    </div>
+  </section>
+
+  <GetMatchedCta />
+</BaseLayout>

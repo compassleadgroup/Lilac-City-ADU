@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageHero from '../../components/PageHero.astro';
+import Verify from '../../components/Verify.astro';
+import Faq from '../../components/Faq.astro';
+import References from '../../components/References.astro';
+import MatchForm from '../../components/MatchForm.astro';
+import LinkCard from '../../components/LinkCard.astro';
+
+const path = '/guides/can-i-build-an-adu-spokane';
+const title = 'Can I Build an ADU on My Lot in Spokane?';
+const description =
+  'A homeowner feasibility checklist for building an ADU in Spokane: zoning, lot and setbacks, utilities, and identifying your jurisdiction. Includes a quick way to get matched.';
+
+const faqItems = [
+  {
+    q: 'Can I build an ADU on my lot in Spokane?',
+    a: 'Most residential lots in the Spokane area can support some form of ADU, but the answer depends on your jurisdiction, lot size and shape, setbacks, and utility access. This checklist helps you assess feasibility, and the builder you are matched with confirms it for your specific property.',
+  },
+  {
+    q: 'What is the size limit for an ADU in Spokane County?',
+    a: 'Size limits are set by your jurisdiction and may have changed after HB 1337, so confirm the current cap on the relevant jurisdiction page before planning. We flag these figures for verification rather than publishing a number that could be out of date.',
+  },
+  {
+    q: 'How many ADUs can I have on one lot under HB 1337?',
+    a: 'HB 1337 (2023) increased how many ADUs many Washington jurisdictions must allow, but the exact count for your lot depends on local implementation. Confirm the current number with your jurisdiction. Our HB 1337 guide explains the law.',
+  },
+];
+---
+<BaseLayout title={title} description={description} path={path}>
+  <Breadcrumbs items={[{ label: 'Guides', href: '/guides/adu-cost-spokane' }, { label: 'Can I Build an ADU?', href: path }]} />
+  <PageHero
+    eyebrow="Guide"
+    title="Can I build an ADU on my lot in Spokane?"
+    lede="Most Spokane-area homeowners can build some form of ADU, but feasibility depends on a handful of factors. Work through this checklist, then get matched with a licensed local builder who can confirm it for your specific lot."
+    cta={{ href: '#get-matched', label: 'Check my lot' }}
+    secondary={{ href: '/spokane', label: 'Rules by jurisdiction' }}
+  />
+
+  <section class="container-prose rich-text pb-2">
+    <h2>1. Identify your jurisdiction</h2>
+    <p>
+      ADU rules differ across the City of Spokane, unincorporated Spokane County, and Spokane Valley.
+      Start by confirming which one governs your lot, because everything else follows from it. If
+      your parcel is not inside a city, the county rules apply.
+    </p>
+
+    <h2>2. Check zoning and allowed ADU types</h2>
+    <p>
+      Most residential zones allow ADUs, but the allowed types and counts depend on your jurisdiction
+      and may have changed after HB 1337. Confirm what your zone allows.
+    </p>
+    <ul>
+      <li>Allowed ADU types for your zone: <Verify item="allowed ADU types and counts for the homeowner's specific zone and jurisdiction" source="the relevant jurisdiction page (spokanecity.org, spokanecounty.gov, or spokanevalleywa.gov)" /></li>
+    </ul>
+
+    <h2>3. Measure your lot against setbacks and size</h2>
+    <p>
+      A buildable ADU has to fit within the setbacks and size limits for your jurisdiction while
+      leaving room for access and any required separation from the main house.
+    </p>
+    <ul>
+      <li>Setbacks and size caps: <Verify item="setbacks, maximum ADU size, and height for the homeowner's jurisdiction" source="the relevant jurisdiction page" /></li>
+    </ul>
+
+    <h2>4. Confirm utility access</h2>
+    <p>
+      Water, sewer or septic, and power all need to reach the unit. On city lots this is usually a
+      connection question. On county lots, septic capacity can be a deciding factor and is worth
+      checking early.
+    </p>
+
+    <h2>5. Account for parking and HB 1337</h2>
+    <p>
+      Parking requirements have been affected by HB 1337, especially near major transit. Confirm the
+      current parking rule for your jurisdiction rather than assuming an older standard. Our HB 1337
+      guide explains the baseline.
+    </p>
+
+    <h2>Feasibility checklist</h2>
+    <ul>
+      <li>I know which jurisdiction governs my lot.</li>
+      <li>My zone allows the ADU type I want.</li>
+      <li>My lot can fit the unit within setbacks and size limits.</li>
+      <li>Water, sewer or septic, and power can reach the unit.</li>
+      <li>I understand the current parking rule for my jurisdiction.</li>
+    </ul>
+    <p>
+      If you can check most of these, you are likely a good candidate. The fastest way to confirm is
+      to get matched with a builder who serves your jurisdiction.
+    </p>
+  </section>
+
+  <div id="get-matched">
+    <MatchForm
+      id="feasibility-match"
+      heading="Find out what your lot can support"
+      intro="Share a few details and we will connect you with a licensed local builder who serves your jurisdiction. Free to you, no obligation."
+    />
+  </div>
+
+  <Faq items={faqItems} heading="Feasibility questions" />
+
+  <References
+    sources={[
+      { label: 'City of Spokane (my.spokanecity.org)', href: 'https://my.spokanecity.org' },
+      { label: 'Spokane County Building and Planning (spokanecounty.gov)', href: 'https://www.spokanecounty.gov' },
+      { label: 'City of Spokane Valley (spokanevalleywa.gov)', href: 'https://www.spokanevalleywa.gov' },
+      { label: 'Washington HB 1337 and RCW 36.70A', href: 'https://app.leg.wa.gov' },
+    ]}
+  />
+
+  <section class="container-page py-10">
+    <h2 class="font-serif text-2xl font-semibold">Related</h2>
+    <div class="mt-6 grid gap-5 sm:grid-cols-3">
+      <LinkCard href="/guides/adu-permits-spokane" eyebrow="Guide" title="ADU Permits in Spokane" blurb="The process once you are ready." />
+      <LinkCard href="/guides/adu-cost-spokane" eyebrow="Guide" title="ADU Cost in Spokane" blurb="What to budget, by type." />
+      <LinkCard href="/spokane" eyebrow="Locations" title="Rules by jurisdiction" blurb="The specifics for your lot." />
+    </div>
+  </section>
+</BaseLayout>
