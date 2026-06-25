@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageHero from '../../components/PageHero.astro';
+import Verify from '../../components/Verify.astro';
+import Faq from '../../components/Faq.astro';
+import References from '../../components/References.astro';
+import LinkCard from '../../components/LinkCard.astro';
+import GetMatchedCta from '../../components/GetMatchedCta.astro';
+
+const path = '/guides/garage-conversion-cost-spokane';
+const title = 'Garage Conversion Cost in Spokane (2026)';
+const description =
+  'What it costs to convert a garage into an ADU in Spokane: the work involved, what drives the price, and how it compares with a new detached unit. Ranges, not quotes.';
+
+const costSrc = 'multiple current Spokane-area garage conversion contractor quotes, as of 2026';
+
+const faqItems = [
+  {
+    q: 'How much does a garage conversion ADU cost in Spokane?',
+    a: 'A garage conversion is often less expensive than a new detached ADU because it reuses an existing structure, but the range is wide and depends on the condition of the garage and how much new plumbing, electrical, insulation, and finish work is needed. We publish a verified Spokane range here once the operator confirms it against current pricing.',
+  },
+  {
+    q: 'Why is a garage conversion usually cheaper than building new?',
+    a: 'The foundation, walls, and roof already exist, so you avoid much of the shell and site work that a new detached unit requires. The savings shrink if the slab, framing, or ceiling height need significant work to meet residential code.',
+  },
+  {
+    q: 'What can make a garage conversion more expensive than expected?',
+    a: 'Common surprises include a slab that needs to be raised or replaced, low ceiling height, adding a compliant foundation, long plumbing runs to reach a new kitchen and bathroom, electrical service upgrades, and drainage fixes. An assessment by the builder identifies these early.',
+  },
+];
+---
+<BaseLayout title="Garage Conversion Cost in Spokane" description={description} path={path}>
+  <Breadcrumbs items={[{ label: 'Guides', href: '/guides/adu-cost-spokane' }, { label: 'Garage Conversion Cost', href: path }]} />
+  <PageHero
+    eyebrow="Guide"
+    title="Garage conversion cost in Spokane (2026)"
+    lede="Converting a garage into an ADU reuses a structure that is already standing, which often makes it one of the lower-cost ways to add a unit. This guide explains the work, what moves the price, and how it compares with building new. Figures are ranges flagged for verification."
+    cta={{ href: '/get-matched', label: 'Get matched with a builder' }}
+    secondary={{ href: '/guides/adu-cost-spokane', label: 'Full ADU cost guide' }}
+  />
+
+  <section class="container-prose rich-text pb-2">
+    <h2>Typical garage conversion cost in Spokane</h2>
+    <p>
+      Cost is a range tied to the condition of the existing garage and the scope of the conversion.
+      The figure below is shown as a verification placeholder until confirmed against current
+      Spokane-area pricing. It is a planning range, not a quote.
+    </p>
+    <ul>
+      <li>Typical Spokane garage conversion: <Verify item="the typical Spokane garage conversion cost range and cost per square foot, as of 2026" source={costSrc} /></li>
+    </ul>
+
+    <h2>What the cost covers</h2>
+    <ul>
+      <li>Insulating the walls, floor, and roof to meet residential energy code.</li>
+      <li>Adding or extending plumbing for a kitchen and bathroom.</li>
+      <li>Upgrading electrical service, outlets, and lighting.</li>
+      <li>Heating and cooling for a living space.</li>
+      <li>Replacing the garage door with a framed wall, windows, and an entrance.</li>
+      <li>Addressing the slab, foundation, and drainage where needed.</li>
+      <li>Interior finishes: flooring, cabinets, counters, and fixtures.</li>
+      <li>Design, engineering, and permit fees.</li>
+    </ul>
+
+    <h2>What drives the price up or down</h2>
+    <ul>
+      <li><strong>Slab and foundation.</strong> A sound, level slab keeps cost down. Raising or replacing it adds cost.</li>
+      <li><strong>Ceiling height.</strong> Some older garages are below residential minimums and need structural changes.</li>
+      <li><strong>Plumbing distance.</strong> The farther the new kitchen and bath are from existing lines, the more it costs.</li>
+      <li><strong>Electrical capacity.</strong> A panel or service upgrade may be required.</li>
+      <li><strong>Finish level.</strong> Entry-level versus high-end finishes change the total significantly.</li>
+    </ul>
+
+    <h2>How it compares with a new detached ADU</h2>
+    <p>
+      A garage conversion generally costs less than a comparable new detached unit because it reuses
+      the shell, but a detached unit offers more design freedom and is not limited by the existing
+      structure. If the garage has a failing slab, low ceilings, or sits where an ADU is not allowed,
+      the cost gap can narrow. Our full ADU cost guide compares all four types side by side.
+    </p>
+
+    <h2>Parking and rules to confirm</h2>
+    <p>
+      Converting a garage removes covered parking, which can interact with parking rules in your
+      jurisdiction. Confirm the current parking and setback standards on your jurisdiction page
+      before you plan a conversion.
+    </p>
+  </section>
+
+  <Faq items={faqItems} heading="Garage conversion cost questions" />
+
+  <References
+    sources={[
+      { label: 'City of Spokane (my.spokanecity.org)', href: 'https://my.spokanecity.org', note: 'Permit fees and parking rules for conversions.' },
+      { label: 'Spokane County Building and Planning (spokanecounty.gov)', href: 'https://www.spokanecounty.gov', note: 'County fees and standards.' },
+      { label: 'City of Spokane Valley (spokanevalleywa.gov)', href: 'https://www.spokanevalleywa.gov', note: 'Spokane Valley fees and standards.' },
+    ]}
+  />
+
+  <section class="container-page py-8">
+    <h2 class="font-serif text-2xl font-semibold">Related</h2>
+    <div class="mt-6 grid gap-5 sm:grid-cols-3">
+      <LinkCard href="/services/garage-conversion-adu" eyebrow="ADU type" title="Garage Conversion ADU" blurb="Scope and feasibility of a conversion." />
+      <LinkCard href="/guides/adu-cost-spokane" eyebrow="Guide" title="Full ADU Cost Guide" blurb="All four ADU types compared." />
+      <LinkCard href="/get-matched" eyebrow="Next step" title="Get matched" blurb="Talk with a licensed local builder." />
+    </div>
+  </section>
+
+  <GetMatchedCta />
+</BaseLayout>

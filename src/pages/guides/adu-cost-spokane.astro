@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageHero from '../../components/PageHero.astro';
+import Verify from '../../components/Verify.astro';
+import Faq from '../../components/Faq.astro';
+import References from '../../components/References.astro';
+import LinkCard from '../../components/LinkCard.astro';
+import GetMatchedCta from '../../components/GetMatchedCta.astro';
+
+const path = '/guides/adu-cost-spokane';
+const title = 'How Much Does an ADU Cost in Spokane? (2026 Guide)';
+const description =
+  'A thorough, Spokane-specific ADU cost guide for 2026: cost by ADU type, what drives the price, permit and system development charges, and soft costs. Ranges, not quotes.';
+
+const costSrc = 'multiple current Spokane-area ADU contractor quotes, as of 2026';
+const feeSrcCity = 'https://my.spokanecity.org (City of Spokane fee schedule)';
+const feeSrcCounty = 'https://www.spokanecounty.gov (Spokane County Building and Planning fees)';
+const feeSrcValley = 'https://www.spokanevalleywa.gov (Spokane Valley fee schedule)';
+
+const faqItems = [
+  {
+    q: 'How much does an ADU cost in Spokane, WA?',
+    a: 'The cost depends on the ADU type, size, site conditions, utilities, and finishes, so it is a range rather than a single number. As of 2026, a new detached ADU generally costs more than a conversion. We publish verified Spokane ranges on this page once the operator confirms them against current contractor pricing, and cost is always a range, never a guaranteed quote.',
+  },
+  {
+    q: 'What drives the cost of an ADU the most?',
+    a: 'The biggest drivers are ADU type (new construction versus converting existing space), size, site work and utility connections, foundation and structural needs, and finish level. Sloped lots, long utility runs, and septic capacity can add significant cost on some properties.',
+  },
+  {
+    q: 'Is a garage conversion cheaper than a new detached ADU?',
+    a: 'Often yes, because a conversion reuses an existing foundation, walls, and roof. The savings vary with the condition of the structure and how much new plumbing, electrical, and insulation the unit needs. See our garage conversion cost guide for detail.',
+  },
+  {
+    q: 'Do I have to pay system development charges for an ADU?',
+    a: 'System development charges and permit fees depend on your jurisdiction and the utilities involved. They are confirmed against each jurisdiction fee schedule. We flag these as items to verify rather than guess, because they change and they differ across the City of Spokane, Spokane County, and Spokane Valley.',
+  },
+];
+---
+<BaseLayout title="ADU Cost in Spokane" description={description} path={path}>
+  <Breadcrumbs items={[{ label: 'Guides', href: '/guides/adu-cost-spokane' }, { label: 'ADU Cost in Spokane', href: path }]} />
+  <PageHero
+    eyebrow="Guide"
+    title="How much does an ADU cost in Spokane? (2026 guide)"
+    lede="ADU cost is a range, not a single price. It depends on the ADU type, size, your site, and the finishes you choose. This guide breaks the cost into the pieces that actually move the number, with Spokane-specific figures flagged for verification so nothing here is a guess."
+    cta={{ href: '/get-matched', label: 'Get matched with a builder' }}
+    secondary={{ href: '/guides/garage-conversion-cost-spokane', label: 'Garage conversion cost' }}
+  />
+
+  <section class="container-prose rich-text pb-2">
+    <h2>How to read these numbers</h2>
+    <p>
+      Every dollar figure on this page is a range tied to a date and a basis, and each one is shown
+      as a verification placeholder until confirmed against current Spokane-area pricing and the
+      jurisdiction fee schedules. Cost is never a quote or a guarantee. Use these ranges to plan, and
+      get an actual price from the licensed local builder you are matched with.
+    </p>
+
+    <h2>Typical ADU cost in Spokane by type</h2>
+    <table>
+      <thead>
+        <tr><th>ADU type</th><th>Typical Spokane range (2026)</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>New detached ADU</td>
+          <td><Verify item="the typical Spokane new detached ADU cost range and cost per square foot" source={costSrc} /></td>
+          <td>Most design freedom, usually the highest cost because everything is new.</td>
+        </tr>
+        <tr>
+          <td>Attached ADU or addition</td>
+          <td><Verify item="the typical Spokane attached ADU or addition cost range" source={costSrc} /></td>
+          <td>Can share structure and utilities with the main home.</td>
+        </tr>
+        <tr>
+          <td>Garage conversion</td>
+          <td><Verify item="the typical Spokane garage conversion cost range" source={costSrc} /></td>
+          <td>Reuses an existing shell, often a lower-cost path.</td>
+        </tr>
+        <tr>
+          <td>Basement ADU or JADU</td>
+          <td><Verify item="the typical Spokane basement ADU or junior ADU cost range" source={costSrc} /></td>
+          <td>Interior conversion, cost driven by egress, plumbing, and finishes.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>What drives ADU cost</h2>
+    <p>
+      Two ADUs of the same size can differ widely in price. These are the factors that move the
+      number the most:
+    </p>
+    <ul>
+      <li><strong>New construction versus conversion.</strong> Building new costs more than adapting existing space.</li>
+      <li><strong>Site work.</strong> Slope, soil, trees, demolition, and access affect excavation and foundation cost.</li>
+      <li><strong>Utilities.</strong> The distance and difficulty of running water, sewer or septic, and power to the unit is a major variable. Septic capacity can be decisive on county lots.</li>
+      <li><strong>Foundation and structure.</strong> A new slab or crawlspace, and any structural upgrades for a conversion.</li>
+      <li><strong>Size and layout.</strong> More square footage, and more plumbing locations, raise cost.</li>
+      <li><strong>Finish level.</strong> Flooring, cabinets, counters, and fixtures span a wide range.</li>
+      <li><strong>Design and engineering.</strong> Plans, structural engineering, and energy calculations.</li>
+      <li><strong>Permit fees and system development charges.</strong> These vary by jurisdiction.</li>
+    </ul>
+
+    <h2>Permit fees and system development charges by jurisdiction</h2>
+    <p>
+      Permit fees and any system development charges depend on which jurisdiction issues the permit
+      and which utilities connect. Confirm each against the jurisdiction fee schedule.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Jurisdiction</th><th>Permit fees and charges</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>City of Spokane</td>
+          <td><Verify item="City of Spokane ADU permit fees and any system development charges" source={feeSrcCity} /></td>
+        </tr>
+        <tr>
+          <td>Unincorporated Spokane County</td>
+          <td><Verify item="Spokane County ADU permit fees and any applicable charges" source={feeSrcCounty} /></td>
+        </tr>
+        <tr>
+          <td>Spokane Valley</td>
+          <td><Verify item="Spokane Valley ADU permit fees and any applicable charges" source={feeSrcValley} /></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Soft costs people forget</h2>
+    <ul>
+      <li>Design and architectural plans.</li>
+      <li>Structural and civil engineering.</li>
+      <li>Surveys and site plans.</li>
+      <li>Utility connection or capacity fees.</li>
+      <li>Financing costs, if you borrow. See our Washington ADU financing guide.</li>
+    </ul>
+
+    <h2>Finish-level detail</h2>
+    <p>
+      Finishes are where budgets flex the most. Flooring, countertops, cabinetry, and fixtures each
+      span an entry-level to high-end range. Specific per-unit and per-square-foot finish prices are
+      shown as verification placeholders until confirmed against current Spokane supplier and
+      installer pricing.
+    </p>
+    <ul>
+      <li>Flooring: <Verify item="installed per-square-foot ranges for laminate and engineered hardwood in Spokane, as of 2026" source={costSrc} /></li>
+      <li>Countertops: <Verify item="typical installed countertop pricing for laminate and stone, as of 2026" source={costSrc} /></li>
+    </ul>
+  </section>
+
+  <Faq items={faqItems} heading="ADU cost questions" />
+
+  <References
+    sources={[
+      { label: 'City of Spokane fee schedule (my.spokanecity.org)', href: 'https://my.spokanecity.org', note: 'Permit fees and any system development charges.' },
+      { label: 'Spokane County Building and Planning (spokanecounty.gov)', href: 'https://www.spokanecounty.gov', note: 'County permit fees.' },
+      { label: 'City of Spokane Valley (spokanevalleywa.gov)', href: 'https://www.spokanevalleywa.gov', note: 'Spokane Valley fees.' },
+    ]}
+  />
+
+  <section class="container-page py-8">
+    <h2 class="font-serif text-2xl font-semibold">Related</h2>
+    <div class="mt-6 grid gap-5 sm:grid-cols-3">
+      <LinkCard href="/guides/garage-conversion-cost-spokane" eyebrow="Guide" title="Garage Conversion Cost" blurb="The lower-cost conversion path in detail." />
+      <LinkCard href="/guides/adu-financing-washington" eyebrow="Guide" title="ADU Financing in Washington" blurb="Ways homeowners pay for an ADU." />
+      <LinkCard href="/spokane" eyebrow="Locations" title="Spokane ADU rules" blurb="Fees and rules differ by jurisdiction." />
+    </div>
+  </section>
+
+  <GetMatchedCta />
+</BaseLayout>
