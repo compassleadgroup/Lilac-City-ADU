@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageHero from '../../components/PageHero.astro';
+import LinkCard from '../../components/LinkCard.astro';
+import GetMatchedCta from '../../components/GetMatchedCta.astro';
+import { SITE } from '../../config';
+
+const path = '/services/basement-jadu';
+const title = 'Basement ADU and Junior ADU Conversion';
+const description =
+  'Basement ADUs and junior ADUs convert interior space into a separate unit, often a lower-cost entry point. Learn how they work and get matched with a licensed local Spokane builder.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Basement ADU and junior ADU builder matching in Spokane',
+  serviceType: 'Interior ADU and junior ADU conversion builder referral',
+  description,
+  provider: { '@type': 'Organization', name: SITE.name, url: SITE.domain },
+  areaServed: ['City of Spokane, WA', 'Unincorporated Spokane County, WA', 'City of Spokane Valley, WA'],
+};
+---
+<BaseLayout title={title} description={description} path={path} schema={schema}>
+  <Breadcrumbs items={[{ label: 'ADU types', href: '/services/detached-adu' }, { label: 'Basement and JADU', href: path }]} />
+  <PageHero
+    eyebrow="ADU type"
+    title="Basement ADU and Junior ADU Conversion"
+    lede="Interior conversions turn existing space inside your home into a separate unit. A basement ADU uses below-grade space, and a junior ADU (JADU) is a smaller unit created within the walls of the existing house. Both can be a lower-cost entry point."
+    cta={{ href: '/get-matched', label: 'Get matched with a builder' }}
+    secondary={{ href: '/guides/adu-cost-spokane', label: 'See ADU cost' }}
+  />
+
+  <section class="container-prose rich-text pb-4">
+    <h2>Basement ADU</h2>
+    <p>
+      A basement ADU converts below-grade space into an independent dwelling with its own entrance,
+      kitchen, and bathroom. Because the shell already exists, the main work is egress, ceiling
+      height, moisture control, insulation, and adding the kitchen and bathroom. A separate, code
+      compliant exit is usually the most important feasibility question.
+    </p>
+
+    <h2>Junior ADU (JADU)</h2>
+    <p>
+      A junior ADU is a smaller unit created within the existing footprint of the house, typically
+      with a more limited kitchen. JADUs are generally the smallest and least expensive ADU type,
+      though the exact rules, including any size cap, depend on your jurisdiction.
+    </p>
+
+    <h2>What to consider</h2>
+    <ul>
+      <li>Egress: a basement unit needs a compliant second exit, which can require a new window well or door.</li>
+      <li>Ceiling height and moisture, which are common limiting factors below grade.</li>
+      <li>Sound separation and a clear division between the unit and the main home.</li>
+      <li>Whether your jurisdiction recognizes junior ADUs and what size and kitchen rules apply.</li>
+    </ul>
+
+    <h2>What the matched builder handles</h2>
+    <p>
+      We connect you with a licensed local builder who serves your jurisdiction. The builder assesses
+      the space, designs the conversion, handles permitting, and performs the work. We are a matching
+      and marketing service, not a contractor.
+    </p>
+  </section>
+
+  <section class="container-page py-8">
+    <h2 class="font-serif text-2xl font-semibold">Keep researching</h2>
+    <div class="mt-6 grid gap-5 sm:grid-cols-3">
+      <LinkCard href="/guides/adu-cost-spokane" eyebrow="Guide" title="ADU Cost in Spokane" blurb="How conversions compare with new construction." />
+      <LinkCard href="/spokane" eyebrow="Locations" title="Spokane ADU rules" blurb="JADU recognition and size caps differ by jurisdiction." />
+      <LinkCard href="/guides/can-i-build-an-adu-spokane" eyebrow="Guide" title="Can I Build an ADU on My Lot?" blurb="Confirm feasibility before you commit." />
+    </div>
+  </section>
+
+  <GetMatchedCta />
+</BaseLayout>

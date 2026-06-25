@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageHero from '../../components/PageHero.astro';
+import LinkCard from '../../components/LinkCard.astro';
+import GetMatchedCta from '../../components/GetMatchedCta.astro';
+import { SITE } from '../../config';
+
+const path = '/services/garage-conversion-adu';
+const title = 'Garage Conversion ADU';
+const description =
+  'Converting an existing garage into an ADU can be one of the lower-cost paths to a second unit in Spokane. Learn feasibility, scope, and get matched with a licensed local builder.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Garage conversion ADU builder matching in Spokane',
+  serviceType: 'Garage conversion accessory dwelling unit builder referral',
+  description,
+  provider: { '@type': 'Organization', name: SITE.name, url: SITE.domain },
+  areaServed: ['City of Spokane, WA', 'Unincorporated Spokane County, WA', 'City of Spokane Valley, WA'],
+};
+---
+<BaseLayout title={title} description={description} path={path} schema={schema}>
+  <Breadcrumbs items={[{ label: 'ADU types', href: '/services/detached-adu' }, { label: 'Garage Conversion', href: path }]} />
+  <PageHero
+    eyebrow="ADU type"
+    title="Garage Conversion ADU"
+    lede="Converting an existing garage into a livable ADU reuses a structure that is already built, which can make it one of the lower-cost ways to add a unit. The right fit depends on the garage, the lot, and your jurisdiction."
+    cta={{ href: '/get-matched', label: 'Get matched with a builder' }}
+    secondary={{ href: '/guides/garage-conversion-cost-spokane', label: 'Garage conversion cost' }}
+  />
+
+  <section class="container-prose rich-text pb-4">
+    <h2>Why a garage conversion can cost less</h2>
+    <p>
+      A garage conversion starts with an existing foundation, walls, and roof, so you are adapting a
+      structure rather than building one from the ground up. That can reduce site work and shell
+      costs compared with a new detached unit. The savings vary widely based on the condition of the
+      garage and how much new plumbing, insulation, and electrical the unit needs.
+    </p>
+
+    <h2>Typical scope of work</h2>
+    <ul>
+      <li>Insulating walls, floor, and roof to meet residential energy requirements.</li>
+      <li>Adding or upgrading plumbing for a kitchen and bathroom.</li>
+      <li>Upgrading electrical service and adding heating and cooling.</li>
+      <li>Replacing the garage door with a wall, windows, and an entrance.</li>
+      <li>Raising or finishing the slab and addressing drainage where needed.</li>
+    </ul>
+
+    <h2>Feasibility considerations</h2>
+    <ul>
+      <li>Whether the existing slab and framing can support residential use, which the builder and an engineer assess.</li>
+      <li>Setbacks and whether the garage already sits where an ADU is allowed.</li>
+      <li>How losing covered parking interacts with any parking rules in your jurisdiction.</li>
+      <li>Ceiling height, since some older garages are below residential minimums.</li>
+      <li>Utility access from the main house to the converted unit.</li>
+    </ul>
+
+    <h2>What the matched builder handles</h2>
+    <p>
+      We are a matching and marketing service, not a contractor. The licensed local builder you are
+      matched with evaluates the garage, designs the conversion, manages permitting with your
+      jurisdiction, and performs the construction. You contract with the builder directly.
+    </p>
+  </section>
+
+  <section class="container-page py-8">
+    <h2 class="font-serif text-2xl font-semibold">Keep researching</h2>
+    <div class="mt-6 grid gap-5 sm:grid-cols-3">
+      <LinkCard href="/guides/garage-conversion-cost-spokane" eyebrow="Guide" title="Garage Conversion Cost in Spokane" blurb="Dated cost ranges for a Spokane garage conversion." />
+      <LinkCard href="/guides/can-i-build-an-adu-spokane" eyebrow="Guide" title="Can I Build an ADU on My Lot?" blurb="Check zoning, lot, and utility feasibility." />
+      <LinkCard href="/spokane" eyebrow="Locations" title="Spokane ADU rules" blurb="Parking and setback rules differ by jurisdiction." />
+    </div>
+  </section>
+
+  <GetMatchedCta />
+</BaseLayout>

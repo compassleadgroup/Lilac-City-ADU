@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageHero from '../../components/PageHero.astro';
+import LinkCard from '../../components/LinkCard.astro';
+import GetMatchedCta from '../../components/GetMatchedCta.astro';
+import { SITE } from '../../config';
+
+const path = '/services/detached-adu';
+const title = 'New Detached ADU';
+const description =
+  'A new detached ADU is a standalone backyard home on your lot. Learn typical uses, what to consider, and get matched with a licensed local Spokane builder.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'New detached ADU builder matching in Spokane',
+  serviceType: 'Detached accessory dwelling unit builder referral',
+  description,
+  provider: { '@type': 'Organization', name: SITE.name, url: SITE.domain },
+  areaServed: ['City of Spokane, WA', 'Unincorporated Spokane County, WA', 'City of Spokane Valley, WA'],
+};
+---
+<BaseLayout title={title} description={description} path={path} schema={schema}>
+  <Breadcrumbs items={[{ label: 'ADU types', href: '/services/detached-adu' }, { label: title, href: path }]} />
+  <PageHero
+    eyebrow="ADU type"
+    title="New Detached ADU"
+    lede="A detached ADU is a standalone home built in your backyard or side yard, separate from the main house. It is the most flexible ADU type and usually the most private for both households."
+    cta={{ href: '/get-matched', label: 'Get matched with a builder' }}
+    secondary={{ href: '/guides/adu-cost-spokane', label: 'See ADU cost' }}
+  />
+
+  <section class="container-prose rich-text pb-4">
+    <h2>What a detached ADU is</h2>
+    <p>
+      A detached ADU is a fully independent dwelling on the same lot as your primary home, with its
+      own entrance, kitchen, and bathroom. Because it stands on its own, it offers the most design
+      freedom of any ADU type, and it keeps the new unit physically separate from the main house.
+    </p>
+
+    <h2>Typical uses</h2>
+    <ul>
+      <li>Long-term rental income from a separate backyard unit.</li>
+      <li>Multigenerational living, such as housing for aging parents or adult children.</li>
+      <li>A guest house, home office, or studio that can later become a rental.</li>
+      <li>Added long-term property value and flexibility.</li>
+    </ul>
+
+    <h2>What the matched builder handles</h2>
+    <p>
+      We are a matching service, not a contractor. The licensed local builder you are matched with
+      handles design, engineering, permitting with your jurisdiction, and construction. You contract
+      with the builder directly. We do not build, design, or pull permits.
+    </p>
+
+    <h2>What to consider before you start</h2>
+    <ul>
+      <li>Your jurisdiction sets the allowed size, height, and setbacks. Confirm the current rules for your lot.</li>
+      <li>Lot size, slope, trees, and access affect what is buildable and the cost.</li>
+      <li>Utility connections (water, sewer or septic, power) are a major cost driver for a detached unit.</li>
+      <li>The Washington 2023 ADU law, HB 1337, changed several local rules. See our HB 1337 guide.</li>
+    </ul>
+  </section>
+
+  <section class="container-page py-8">
+    <h2 class="font-serif text-2xl font-semibold">Keep researching</h2>
+    <div class="mt-6 grid gap-5 sm:grid-cols-3">
+      <LinkCard href="/guides/adu-cost-spokane" eyebrow="Guide" title="ADU Cost in Spokane" blurb="What a new detached ADU costs, with dated ranges and basis." />
+      <LinkCard href="/guides/can-i-build-an-adu-spokane" eyebrow="Guide" title="Can I Build an ADU on My Lot?" blurb="A feasibility checklist for zoning, lot, and utilities." />
+      <LinkCard href="/spokane" eyebrow="Locations" title="Spokane ADU rules" blurb="Current rules for each of the three jurisdictions." />
+    </div>
+  </section>
+
+  <GetMatchedCta />
+</BaseLayout>

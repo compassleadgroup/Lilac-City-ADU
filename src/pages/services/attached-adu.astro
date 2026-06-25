@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageHero from '../../components/PageHero.astro';
+import LinkCard from '../../components/LinkCard.astro';
+import GetMatchedCta from '../../components/GetMatchedCta.astro';
+import { SITE } from '../../config';
+
+const path = '/services/attached-adu';
+const title = 'Attached ADU and Home Additions';
+const description =
+  'An attached ADU shares a wall with your existing home, or is built as an addition. Learn how it differs from a detached unit and get matched with a licensed local Spokane builder.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Attached ADU and home addition builder matching in Spokane',
+  serviceType: 'Attached accessory dwelling unit and addition builder referral',
+  description,
+  provider: { '@type': 'Organization', name: SITE.name, url: SITE.domain },
+  areaServed: ['City of Spokane, WA', 'Unincorporated Spokane County, WA', 'City of Spokane Valley, WA'],
+};
+---
+<BaseLayout title={title} description={description} path={path} schema={schema}>
+  <Breadcrumbs items={[{ label: 'ADU types', href: '/services/detached-adu' }, { label: 'Attached ADU', href: path }]} />
+  <PageHero
+    eyebrow="ADU type"
+    title="Attached ADU and Home Additions"
+    lede="An attached ADU shares at least one wall with your primary home, or is built as an addition designed to function as a separate unit. It can be a cost-effective path when your lot or budget favors building onto the existing structure."
+    cta={{ href: '/get-matched', label: 'Get matched with a builder' }}
+    secondary={{ href: '/guides/adu-cost-spokane', label: 'See ADU cost' }}
+  />
+
+  <section class="container-prose rich-text pb-4">
+    <h2>How an attached ADU differs from a detached unit</h2>
+    <p>
+      An attached ADU connects to the main house, so it can share structure, a wall, or utility
+      runs. That can lower some costs compared with a standalone build, but it ties the project more
+      closely to the existing home and its systems. A home addition built to serve as an independent
+      unit, with its own entrance, kitchen, and bathroom, falls into the same category.
+    </p>
+
+    <h2>Typical uses</h2>
+    <ul>
+      <li>Adding a rental or in-law unit without giving up backyard space.</li>
+      <li>Extending an existing home and converting part of it into a separate dwelling.</li>
+      <li>Lots where a separate detached structure is not practical.</li>
+    </ul>
+
+    <h2>What the matched builder handles</h2>
+    <p>
+      We connect you with a licensed local builder who serves your jurisdiction. The builder handles
+      design, engineering, permitting, and construction, including how the addition ties into your
+      existing home. We are a matching and marketing service, not a contractor.
+    </p>
+
+    <h2>What to consider</h2>
+    <ul>
+      <li>How the new unit connects to the existing structure, roofline, and foundation.</li>
+      <li>Shared versus separate utilities and metering.</li>
+      <li>Size and setback rules for your jurisdiction, which differ from lot to lot.</li>
+      <li>Whether your goals are better served by a detached unit or a conversion instead.</li>
+    </ul>
+  </section>
+
+  <section class="container-page py-8">
+    <h2 class="font-serif text-2xl font-semibold">Keep researching</h2>
+    <div class="mt-6 grid gap-5 sm:grid-cols-3">
+      <LinkCard href="/services/detached-adu" eyebrow="ADU type" title="New Detached ADU" blurb="Compare with a standalone backyard unit." />
+      <LinkCard href="/guides/adu-cost-spokane" eyebrow="Guide" title="ADU Cost in Spokane" blurb="Dated cost ranges by ADU type." />
+      <LinkCard href="/guides/can-i-build-an-adu-spokane" eyebrow="Guide" title="Can I Build an ADU on My Lot?" blurb="Check feasibility for your lot." />
+    </div>
+  </section>
+
+  <GetMatchedCta />
+</BaseLayout>
