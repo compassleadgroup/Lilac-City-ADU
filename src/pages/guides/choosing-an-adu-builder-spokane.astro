@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageHero from '../../components/PageHero.astro';
+import Faq from '../../components/Faq.astro';
+import LinkCard from '../../components/LinkCard.astro';
+import GetMatchedCta from '../../components/GetMatchedCta.astro';
+
+const path = '/guides/choosing-an-adu-builder-spokane';
+const title = 'How to Choose an ADU Builder in Spokane';
+const description =
+  'What to look for in a Spokane ADU builder: licensing, permitting experience, references, and clear contracts. Questions to ask, and how matching helps you compare.';
+
+const faqItems = [
+  {
+    q: 'How do I check if an ADU builder is licensed in Washington?',
+    a: 'Washington contractors register with the state, and you can verify a contractor registration and bonding through the Washington Department of Labor and Industries. Ask any builder for their registration details and confirm them before signing.',
+  },
+  {
+    q: 'What questions should I ask an ADU builder?',
+    a: 'Ask about their experience with ADUs in your specific jurisdiction, how they handle permitting, their timeline and payment schedule, references from recent ADU projects, what the contract includes, and how they handle changes and unforeseen conditions.',
+  },
+  {
+    q: 'How does getting matched help me choose a builder?',
+    a: 'We connect you with a licensed local builder who serves your jurisdiction, which saves you the first round of searching. You still evaluate the builder yourself using the criteria on this page, and you contract with them directly.',
+  },
+];
+---
+<BaseLayout title={title} description={description} path={path}>
+  <Breadcrumbs items={[{ label: 'Guides', href: '/guides/adu-cost-spokane' }, { label: 'Choosing a Builder', href: path }]} />
+  <PageHero
+    eyebrow="Guide"
+    title="How to choose an ADU builder in Spokane"
+    lede="Choosing the right builder is the most important decision in an ADU project. Here is what to look for and what to ask, framed as guidance so you can compare on substance. We do not rank or rate named firms."
+    cta={{ href: '/get-matched', label: 'Get matched with a builder' }}
+    secondary={{ href: '/guides/adu-cost-spokane', label: 'ADU cost guide' }}
+  />
+
+  <section class="container-prose rich-text pb-2">
+    <h2>What to look for</h2>
+    <ul>
+      <li><strong>Current Washington contractor registration.</strong> Confirm the builder is registered and bonded through the Department of Labor and Industries.</li>
+      <li><strong>ADU and permitting experience.</strong> ADUs have jurisdiction-specific rules. A builder who regularly permits ADUs in your jurisdiction is a meaningful advantage.</li>
+      <li><strong>References and recent work.</strong> Ask for references from recent ADU projects and follow up on them.</li>
+      <li><strong>Clear, written contracts.</strong> Scope, schedule, payment milestones, allowances, and how changes are handled should be in writing.</li>
+      <li><strong>Communication.</strong> Responsiveness and clarity during the bid process tend to predict the project experience.</li>
+    </ul>
+
+    <h2>Questions to ask before you sign</h2>
+    <ul>
+      <li>How many ADUs have you permitted in my jurisdiction?</li>
+      <li>What is included in your price, and what is treated as an allowance?</li>
+      <li>What is the realistic timeline, and what could extend it?</li>
+      <li>How do you handle permit comments and unforeseen site conditions?</li>
+      <li>What does your payment schedule look like?</li>
+      <li>Can I see references and recent examples?</li>
+    </ul>
+
+    <h2>Why comparison matters more than star ratings</h2>
+    <p>
+      Review stars are easy to find and hard to interpret. A better approach for a major purchase is
+      to compare builders on licensing, relevant experience, references, and the clarity of their
+      contract. That is the comparison this guide is built around. We deliberately do not show review
+      stars or rank named firms.
+    </p>
+
+    <h2>How matching helps</h2>
+    <p>
+      We connect you with a licensed local builder who serves your jurisdiction, so you start from a
+      relevant short list rather than a blank search. You still do your own evaluation with the
+      criteria above, and you contract directly with the builder. It is free to you, because we are
+      paid by the builder, not by you.
+    </p>
+  </section>
+
+  <Faq items={faqItems} heading="Choosing a builder: questions" />
+
+  <section class="container-page py-8">
+    <h2 class="font-serif text-2xl font-semibold">Related</h2>
+    <div class="mt-6 grid gap-5 sm:grid-cols-3">
+      <LinkCard href="/about" eyebrow="About" title="How matching works" blurb="Our model and disclosure." />
+      <LinkCard href="/guides/adu-cost-spokane" eyebrow="Guide" title="ADU Cost in Spokane" blurb="Know the budget before you bid." />
+      <LinkCard href="/get-matched" eyebrow="Next step" title="Get matched" blurb="Start with a licensed local builder." />
+    </div>
+  </section>
+
+  <GetMatchedCta />
+</BaseLayout>

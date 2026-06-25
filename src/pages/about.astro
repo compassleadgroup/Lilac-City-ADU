@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageHero from '../components/PageHero.astro';
+import LinkCard from '../components/LinkCard.astro';
+import GetMatchedCta from '../components/GetMatchedCta.astro';
+import { SITE } from '../config';
+
+const path = '/about';
+const title = 'How the Matching Service Works';
+const description =
+  'Lilac City ADU is a marketing and matching service operated by Compass Camper LLC as Compass Lead Group. Learn how matching works, why it is free to homeowners, and what we are not.';
+---
+<BaseLayout title={title} description={description} path={path}>
+  <Breadcrumbs items={[{ label: 'How it works', href: path }]} />
+  <PageHero
+    eyebrow="How it works"
+    title="How the matching service works"
+    lede="Lilac City ADU connects Spokane-area homeowners with licensed local ADU builders. We are a marketing and matching service, not a contractor. Here is exactly how that works and how we are paid."
+    cta={{ href: '/get-matched', label: 'Get matched' }}
+  />
+
+  <section class="container-prose rich-text pb-2">
+    <h2>Who we are</h2>
+    <p>
+      {SITE.name} is operated by {SITE.entityLegal}, which does business publicly as
+      {SITE.entityDba}. We publish current, sourced guides on Spokane ADU rules, permits, and cost,
+      and we connect homeowners with licensed local builders who serve their jurisdiction. We are a
+      marketing and lead-referral business. We do not design, permit, or build anything.
+    </p>
+
+    <h2>How matching works</h2>
+    <ol>
+      <li>You tell us about your jurisdiction, ADU type, and project through the get-matched form.</li>
+      <li>We connect you with a licensed local ADU builder who serves your jurisdiction.</li>
+      <li>You talk directly with that builder, who handles design, permitting, and construction. You contract with them, not with us.</li>
+    </ol>
+
+    <h2>Why it is free to you</h2>
+    <p>
+      Homeowners pay nothing to use {SITE.name}. We are paid by the builder, not by you. That keeps
+      the guides and the matching service free, and it means you are never billed for a referral.
+    </p>
+
+    <h2>What we are, and what we are not</h2>
+    <ul>
+      <li>We are a marketing and matching service that connects homeowners with independent licensed local builders.</li>
+      <li>We are not a contractor, an architect, an engineer, or a lender.</li>
+      <li>We do not build, design, or pull permits. The builder you are matched with does those things.</li>
+      <li>We do not provide legal, financial, or construction advice. Our guides are general information.</li>
+    </ul>
+
+    <h2>How we keep the information trustworthy</h2>
+    <p>
+      ADU rules and costs carry real consequences, so we hold the content to a strict standard. Every
+      regulatory and fee specific is cited to a primary government source or clearly flagged for
+      verification, cost is always presented as a dated range rather than a quote, and we flag
+      conflicts between older local documents and the 2023 state law, HB 1337, rather than guessing.
+      We do not publish review stars, testimonials, or any figure we cannot stand behind.
+    </p>
+
+    <h2>Contact and operating entity</h2>
+    <p>
+      {SITE.entityLegal}, operating as {SITE.entityDba}.<br />
+      Operating address: {SITE.addressPlaceholder}<br />
+      Phone: {SITE.phonePlaceholder}<br />
+      Email: {SITE.emailPlaceholder}
+    </p>
+    <p class="text-sm text-basalt-soft">
+      The operating address, phone number, and email above are placeholders to be confirmed by the
+      operator before promotion.
+    </p>
+  </section>
+
+  <section class="container-page py-8">
+    <h2 class="font-serif text-2xl font-semibold">Learn more</h2>
+    <div class="mt-6 grid gap-5 sm:grid-cols-3">
+      <LinkCard href="/guides/choosing-an-adu-builder-spokane" eyebrow="Guide" title="Choosing a Builder" blurb="What to look for and ask." />
+      <LinkCard href="/spokane" eyebrow="Locations" title="Rules by jurisdiction" blurb="The three Spokane jurisdictions." />
+      <LinkCard href="/get-matched" eyebrow="Next step" title="Get matched" blurb="Connect with a builder." />
+    </div>
+  </section>
+
+  <GetMatchedCta variant="wheat" />
+</BaseLayout>

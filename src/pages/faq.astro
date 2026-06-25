@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageHero from '../components/PageHero.astro';
+import Faq from '../components/Faq.astro';
+import LinkCard from '../components/LinkCard.astro';
+import GetMatchedCta from '../components/GetMatchedCta.astro';
+
+const path = '/faq';
+const title = 'Spokane ADU FAQ';
+const description =
+  'Answers to common Spokane ADU questions: cost, permits, size limits, owner-occupancy under HB 1337, parking, timelines, ADU types, financing, and system development charges.';
+
+const faqItems = [
+  {
+    q: 'How much does an ADU cost in Spokane, WA?',
+    a: 'Cost is a range that depends on the ADU type, size, site, utilities, and finishes, and it is never a guaranteed quote. A new detached unit generally costs more than a conversion. See our ADU cost guide for a structured breakdown with figures the operator confirms before promotion.',
+  },
+  {
+    q: 'Do you need a permit for an ADU in Washington state?',
+    a: 'Yes. An ADU is a dwelling and requires building and related permits from the jurisdiction that governs your lot. The builder you are matched with manages the permit process. See our Spokane ADU permits guide.',
+  },
+  {
+    q: 'What are the disadvantages of ADUs?',
+    a: 'An ADU is a significant investment with construction disruption, financing to arrange, and ongoing responsibilities if you rent it out, such as being a landlord and maintaining a second unit. Feasibility limits like setbacks, utilities, and septic capacity can also add cost on some lots. Weigh these against the benefits of income, flexibility, and added value.',
+  },
+  {
+    q: 'What is the size limit for an ADU in Spokane County?',
+    a: 'Size limits are set by your jurisdiction and may have changed after HB 1337. Confirm the current cap for unincorporated Spokane County on our county rules page, where it is cited to the county source or flagged for verification.',
+  },
+  {
+    q: 'Can I build an ADU on my lot in Spokane?',
+    a: 'Most residential lots can support some form of ADU, but it depends on your jurisdiction, lot size, setbacks, and utilities. Our feasibility guide walks through a checklist, and a matched builder confirms it for your property.',
+  },
+  {
+    q: 'How many ADUs can I have on one lot under HB 1337?',
+    a: 'HB 1337 (2023) increased how many ADUs many Washington jurisdictions must allow, but the exact count depends on local implementation. Confirm the current number with your jurisdiction. See our HB 1337 guide.',
+  },
+  {
+    q: 'Is owner occupancy required for an ADU in Spokane after HB 1337?',
+    a: 'HB 1337 limits owner-occupancy requirements, so older rules requiring you to live on site may no longer apply. Confirm the current rule for your jurisdiction before relying on it.',
+  },
+  {
+    q: 'Do I need extra parking for an ADU in Spokane?',
+    a: 'Parking requirements vary by jurisdiction and have been affected by HB 1337, especially near major transit. Check the current standard on your jurisdiction page rather than assuming an older rule.',
+  },
+  {
+    q: 'How long does ADU permitting take in Spokane?',
+    a: 'It varies with the jurisdiction, the completeness of the submittal, and review workload. A complete application from an experienced builder helps avoid the most common delays. Confirm current review times with your jurisdiction.',
+  },
+  {
+    q: 'What is the difference between a detached ADU, an attached ADU, and a junior ADU?',
+    a: 'A detached ADU is a standalone unit on the lot. An attached ADU shares a wall with the main home or is built as an addition. A junior ADU is a smaller unit created within the existing footprint of the house, often with a limited kitchen. See our ADU type pages for detail.',
+  },
+  {
+    q: 'How do I finance an ADU in Washington?',
+    a: 'Common options include home equity loans and lines of credit, cash-out refinancing, renovation loans, and construction loans. This is general information, not financial advice. See our Washington ADU financing guide and talk with a licensed lender.',
+  },
+  {
+    q: 'What is a system development charge and does it apply to my ADU?',
+    a: 'A system development charge is a fee some jurisdictions assess to connect to public utilities such as water and sewer. Whether one applies, and how much, depends on your jurisdiction and utilities. We flag these as items to confirm against the jurisdiction fee schedule rather than guessing.',
+  },
+];
+---
+<BaseLayout title={title} description={description} path={path}>
+  <Breadcrumbs items={[{ label: 'FAQ', href: path }]} />
+  <PageHero
+    eyebrow="FAQ"
+    title="Spokane ADU frequently asked questions"
+    lede="Common questions from Spokane-area homeowners researching an ADU. Regulatory answers point to the jurisdiction pages, where each figure is cited or flagged for verification."
+  />
+
+  <Faq items={faqItems} heading="Spokane ADU questions" />
+
+  <section class="container-page py-8">
+    <h2 class="font-serif text-2xl font-semibold">Keep going</h2>
+    <div class="mt-6 grid gap-5 sm:grid-cols-3">
+      <LinkCard href="/guides/adu-cost-spokane" eyebrow="Guide" title="ADU Cost in Spokane" blurb="What an ADU costs, by type." />
+      <LinkCard href="/spokane" eyebrow="Locations" title="Rules by jurisdiction" blurb="The specifics for your lot." />
+      <LinkCard href="/guides/can-i-build-an-adu-spokane" eyebrow="Guide" title="Can I Build an ADU?" blurb="A feasibility checklist." />
+    </div>
+  </section>
+
+  <GetMatchedCta />
+</BaseLayout>

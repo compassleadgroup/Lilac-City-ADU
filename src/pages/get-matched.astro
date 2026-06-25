@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageHero from '../components/PageHero.astro';
+import MatchForm from '../components/MatchForm.astro';
+import { SITE } from '../config';
+
+const path = '/get-matched';
+const title = 'Get Matched with a Spokane ADU Builder';
+const description =
+  'Tell us about your ADU project and we connect you with a licensed local builder who serves your Spokane-area jurisdiction. Free to you, no obligation.';
+---
+<BaseLayout title={title} description={description} path={path}>
+  <Breadcrumbs items={[{ label: 'Get matched', href: path }]} />
+  <PageHero
+    eyebrow="Get matched"
+    title="Get matched with a licensed local Spokane ADU builder"
+    lede="Share a few details about your lot and project. We connect you with a licensed local builder who serves your jurisdiction. It is free to you, we are paid by the builder, and there is no obligation."
+  />
+
+  <MatchForm id="primary-match" />
+
+  <section class="container-prose rich-text py-10">
+    <h2>What happens after you submit</h2>
+    <ol>
+      <li>We review your details and identify a licensed local builder who serves your jurisdiction.</li>
+      <li>The builder follows up to discuss your project directly.</li>
+      <li>You decide whether to proceed. You contract with the builder, not with us.</li>
+    </ol>
+    <p class="text-sm text-basalt-soft">
+      We do not promise a specific price, timeline, financing approval, or permit outcome. {SITE.name}
+      is a marketing and matching service operated by {SITE.entityLegal} as {SITE.entityDba}, and is
+      not a contractor.
+    </p>
+  </section>
+</BaseLayout>
