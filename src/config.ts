@@ -9,6 +9,13 @@
 // demand and SERP checks. See HANDOFF.md sections 5 and 6.
 export const NOINDEX_SITE = true;
 
+// Web3Forms access key. This key is public by design: at build time it is
+// inlined into the static page HTML and is visible in page source, so storing
+// it here is no less exposed than the Cloudflare env var. Committed as a
+// fallback at operator request. If the Cloudflare env var PUBLIC_WEB3FORMS_KEY
+// is set, it overrides this value.
+export const WEB3FORMS_KEY = '06e4d45b-3325-46b6-a4a4-2a0a381aa95a';
+
 export const SITE = {
   name: 'Lilac City ADU',
   domain: 'https://lilaccityadu.com',

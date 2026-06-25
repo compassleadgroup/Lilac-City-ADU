@@ -4,7 +4,7 @@
 // Never hardcode a real key. TCPA consent is required and NEVER pre-checked.
 // Progressive enhancement: native POST works without JS; the inline script
 // adds inline success and error states when JS is available.
-import { JURISDICTIONS, SERVICES, SITE } from '../config';
+import { JURISDICTIONS, SERVICES, SITE, WEB3FORMS_KEY } from '../config';
 
 interface Props {
   id?: string;
@@ -19,7 +19,7 @@ const {
   compact = false,
 } = Astro.props;
 
-const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? 'YOUR_WEB3FORMS_ACCESS_KEY';
+const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? WEB3FORMS_KEY;
 const field = 'mt-1 w-full rounded-md border border-wheat bg-paper px-3 py-2 text-basalt focus:border-ponderosa';
 const label = 'block text-sm font-semibold text-basalt';
 ---

@@ -43,7 +43,7 @@ These live in src/config.ts (or Cloudflare env vars) as placeholders.
 | Operating address | src/config.ts addressPlaceholder | Bracketed placeholder text |
 | TextNow 509 phone | src/config.ts phonePlaceholder and phoneHref | (509) 555-0100 (fictional placeholder) |
 | Contact email | src/config.ts emailPlaceholder | hello@lilaccityadu.com |
-| Web3Forms access key | Cloudflare env var PUBLIC_WEB3FORMS_KEY | Falls back to YOUR_WEB3FORMS_ACCESS_KEY |
+| Web3Forms access key | Committed in src/config.ts WEB3FORMS_KEY (operator choice); Cloudflare env var PUBLIC_WEB3FORMS_KEY overrides if set | Done (public-by-design key) |
 | GA4 Measurement ID | Cloudflare Zaraz (not in code) | Not hardcoded by design |
 | Spokane city and county ADU permit-issuance counts | Operator demand check, not in code | Pending |
 
