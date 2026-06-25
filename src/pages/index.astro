@@ -1,0 +1,61 @@
+---
+// Scaffold placeholder home page (Batch 1).
+// The real homepage and the shared layout shell are built in Batch 2 and Batch 3.
+// This page is intentionally marked noindex until real content lands.
+// It still carries the header disclosure strip and footer entity disclaimer,
+// because compliance requires both on every page with no exceptions.
+import '../styles/global.css';
+
+const siteName = 'Lilac City ADU';
+const entity = 'Compass Camper LLC, operating as Compass Lead Group';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{siteName}: Spokane ADU matching service (in development)</title>
+    <meta
+      name="description"
+      content="Lilac City ADU connects Spokane-area homeowners with licensed local ADU builders. Site in development."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body style="background:#F7F4EE; color:#2B2D2A; font-family: system-ui, sans-serif; margin:0;">
+    <!-- Header disclosure strip (required on every page) -->
+    <div
+      style="background:#2B2D2A; color:#F7F4EE; font-size:0.8rem; line-height:1.4; padding:0.5rem 1rem; text-align:center;"
+    >
+      Lilac City ADU is a marketing and matching service that connects homeowners
+      with independent licensed local ADU builders. It is not a contractor.
+    </div>
+
+    <main style="max-width:48rem; margin:0 auto; padding:4rem 1.5rem;">
+      <p style="color:#3E5233; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; font-size:0.8rem; margin:0;">
+        Spokane metro ADU matching
+      </p>
+      <h1 style="font-size:2rem; line-height:1.2; margin:0.5rem 0 1rem;">
+        Lilac City ADU
+      </h1>
+      <p style="font-size:1.1rem; line-height:1.6; max-width:36rem;">
+        We connect Spokane-area homeowners with licensed local ADU builders across
+        the City of Spokane, unincorporated Spokane County, and Spokane Valley.
+        This site is currently in development.
+      </p>
+    </main>
+
+    <!-- Footer entity disclaimer (required on every page) -->
+    <footer
+      style="border-top:1px solid #E3D6B8; padding:2rem 1.5rem; font-size:0.8rem; line-height:1.5; color:#2B2D2A; max-width:48rem; margin:0 auto;"
+    >
+      <p style="margin:0;">
+        {entity}. This site is an advertising and lead-referral service. All
+        construction is performed by independent licensed third-party builders the
+        homeowner contracts with directly. Lilac City ADU does not design, permit,
+        or build, and is not a contractor.
+      </p>
+    </footer>
+  </body>
+</html>

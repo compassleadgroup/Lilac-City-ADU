@@ -1,0 +1,6 @@
+/*
+  Tailwind CSS v4 entry point.
+  Design tokens for the "Basalt and Ponderosa" system are added in Batch 2.
+  For now this only pulls in Tailwind so the scaffold builds.
+*/
+@import "tailwindcss";

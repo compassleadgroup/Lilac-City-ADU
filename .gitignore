@@ -1,0 +1,24 @@
+# build output
+dist/
+
+# generated Astro types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment variables (secrets live in Cloudflare env vars, never committed)
+.env
+.env.*
+!.env.example
+
+# editor and OS
+.DS_Store
+.vscode/
+.idea/
