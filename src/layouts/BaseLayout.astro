@@ -6,7 +6,7 @@
 import '../styles/global.css';
 import '@fontsource-variable/fraunces';
 import '@fontsource-variable/source-sans-3';
-import { SITE } from '../config';
+import { SITE, NOINDEX_SITE } from '../config';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import JsonLd from '../components/JsonLd.astro';
@@ -20,6 +20,8 @@ interface Props {
   ogType?: string;
 }
 const { title, description, path, noindex = false, schema, ogType = 'website' } = Astro.props;
+// Site-wide noindex (temporary pre-promotion gate) OR a per-page override.
+const robotsNoindex = NOINDEX_SITE || noindex;
 const canonical = `${SITE.domain}${path === '/' ? '/' : path}`;
 const fullTitle = path === '/' ? `${SITE.name}: ${SITE.tagline}` : `${title} | ${SITE.name}`;
 
@@ -54,7 +56,7 @@ const orgSchema = {
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    {noindex ? <meta name="robots" content="noindex, nofollow" /> : null}
+    {robotsNoindex ? <meta name="robots" content="noindex, nofollow" /> : null}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="theme-color" content="#3E5233" />
     <meta name="generator" content={Astro.generator} />

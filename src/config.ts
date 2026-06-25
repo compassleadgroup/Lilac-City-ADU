@@ -2,6 +2,13 @@
 // All operator-supplied placeholders live here so there is one place to swap them.
 // No secrets in this file. The Web3Forms key comes from a Cloudflare env var.
 
+// TEMPORARY PRE-PROMOTION GATE.
+// While true, every page emits a noindex, nofollow robots meta tag so search
+// engines keep the placeholder build out of their index. Set this to false only
+// after every [VERIFY: ...] placeholder is resolved and the operator clears the
+// demand and SERP checks. See HANDOFF.md sections 5 and 6.
+export const NOINDEX_SITE = true;
+
 export const SITE = {
   name: 'Lilac City ADU',
   domain: 'https://lilaccityadu.com',
