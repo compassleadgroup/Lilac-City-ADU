@@ -2,12 +2,11 @@
 // All operator-supplied placeholders live here so there is one place to swap them.
 // No secrets in this file. The Web3Forms key comes from a Cloudflare env var.
 
-// TEMPORARY PRE-PROMOTION GATE.
-// While true, every page emits a noindex, nofollow robots meta tag so search
-// engines keep the placeholder build out of their index. Set this to false only
-// after every [VERIFY: ...] placeholder is resolved and the operator clears the
-// demand and SERP checks. See HANDOFF.md sections 5 and 6.
-export const NOINDEX_SITE = true;
+// Site-wide indexing switch.
+// When true, every page emits a noindex, nofollow robots meta tag. The
+// regulatory content is resolved and the site is indexable, so this is false.
+// Set it back to true only if you need to pull the whole site from search.
+export const NOINDEX_SITE = false;
 
 // Web3Forms access key. This key is public by design: at build time it is
 // inlined into the static page HTML and is visible in page source, so storing

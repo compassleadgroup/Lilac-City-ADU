@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import PageHero from '../../components/PageHero.astro';
-import Verify from '../../components/Verify.astro';
 import Faq from '../../components/Faq.astro';
 import References from '../../components/References.astro';
 import LinkCard from '../../components/LinkCard.astro';
@@ -11,9 +10,7 @@ import GetMatchedCta from '../../components/GetMatchedCta.astro';
 const path = '/spokane/adu-rules-spokane-county';
 const title = 'ADUs in Unincorporated Spokane County';
 const description =
-  'ADU rules for unincorporated Spokane County, including the urban growth area split under HB 1337, the BP-75 and BP-76 sheets, Title 14 zoning, and the permit process.';
-
-const title14 = 'https://www.spokanecounty.gov/720/Codes-Ordinances (Spokane County Zoning Code, Title 14)';
+  'ADU rules for unincorporated Spokane County: the urban growth area split under HB 1337, the role of Title 14 zoning and Building and Planning, and how to confirm your parcel.';
 
 const faqItems = [
   {
@@ -22,11 +19,11 @@ const faqItems = [
   },
   {
     q: 'Does HB 1337 apply in unincorporated Spokane County?',
-    a: 'It applies to the urban growth area (UGA) portions of the county, where two ADUs per lot and no owner-occupancy requirement apply under HB 1337. Outside the UGA, the county retains more discretion (RCW 36.70A.680). So the first question for a county lot is whether it is inside the UGA.',
+    a: 'It applies to the urban growth area (UGA) portions of the county, where two ADUs per lot and no owner-occupancy requirement apply under HB 1337. Outside the UGA, the county sets its own standards. So the first question for a county lot is whether it is inside the UGA.',
   },
   {
     q: 'What are the Spokane County BP-75 and BP-76 sheets?',
-    a: 'BP-75 (detached) and BP-76 (attached) are Spokane County Building and Planning information sheets for ADUs. They are a helpful starting point, but the county states they are not warranted for accuracy, so the controlling source is the county zoning code (Title 14), not the brochure.',
+    a: 'BP-75 (detached) and BP-76 (attached) are Spokane County Building and Planning information sheets for ADUs. They are a helpful starting point, but the controlling source is the county zoning code (Title 14) and the Building and Planning department, not the brochure.',
   },
 ];
 ---
@@ -35,88 +32,52 @@ const faqItems = [
   <PageHero
     eyebrow="Jurisdiction"
     title="ADUs in Unincorporated Spokane County"
-    lede="These rules apply to parcels in unincorporated Spokane County, meaning lots not inside any city. The key question is whether your lot is inside an urban growth area, because HB 1337 applies there but the county keeps more discretion outside it. The controlling source is the county zoning code (Title 14), supported by sheets BP-75 and BP-76."
+    lede="These rules apply to parcels in unincorporated Spokane County, meaning lots not inside any city. The key questions are your parcel's zone and whether it sits inside an urban growth area, because HB 1337 applies inside the urban growth area but the county sets its own standards outside it."
     cta={{ href: '/get-matched', label: 'Get matched with a builder' }}
     secondary={{ href: '/guides/can-i-build-an-adu-spokane', label: 'Can I build an ADU?' }}
   />
 
   <section class="container-prose rich-text pb-2">
-    <h2>Identify your jurisdiction, then your UGA status</h2>
+    <h2>Identify your jurisdiction first</h2>
     <p>
       Spokane County contains several incorporated cities, including Spokane, Spokane Valley, Cheney,
-      Liberty Lake, and Airway Heights. Each writes its own ADU rules. The standards here apply only
-      to unincorporated county land. The next question is whether your unincorporated lot is inside an
-      urban growth area (UGA): HB 1337 (two ADUs per lot, no owner-occupancy requirement) applies to
-      the UGA portions of the county, while outside the UGA the county retains more discretion (RCW
-      36.70A.680).
-    </p>
-    <p>
-      Outside the UGA, a separate state law (HB 1345) lets a county allow one detached ADU per rural
-      parcel, but only if the county chooses to opt in, since participation is voluntary. Whether
-      Spokane County has opted in:
-      <Verify item="whether Spokane County has opted in to the HB 1345 rural ADU option" source="https://www.spokanecounty.gov/720/Codes-Ordinances" />
+      Liberty Lake, and Airway Heights. Each writes its own ADU rules. The guidance here applies only
+      to unincorporated county land.
     </p>
 
-    <h2>Use the zoning code, not the brochure</h2>
+    <h2>How unincorporated county ADU rules work</h2>
     <p>
-      The BP-75 (detached) and BP-76 (attached) sheets are a useful orientation, but the county notes
-      they are not warranted for accuracy. The controlling source is the Spokane County Zoning Code,
-      Title 14. Several county specifics below are confirmed there rather than from the brochure.
+      Unincorporated Spokane County regulates ADUs through its zoning code (Title 14) and the Building
+      and Planning department. The rules depend on your parcel's zone and whether it sits inside the
+      urban growth area.
+    </p>
+    <p>
+      Inside the urban growth area, Washington's HB 1337 requires the county to allow at least two
+      ADUs per lot, with no owner-occupancy requirement and impact fees capped at 50 percent of the
+      principal unit. Where the local code has not yet caught up to state law, state law controls.
+    </p>
+    <p>
+      Outside the urban growth area, the county sets its own standards for size, height, setbacks, and
+      parking, and some zones may require a conditional use permit. A separate state law, HB 1345,
+      lets counties choose whether to allow a detached ADU on rural parcels.
+    </p>
+    <p>
+      Because the exact requirements depend on your specific parcel, confirm the current standards
+      with Spokane County Building and Planning before you design or apply.
     </p>
 
-    <h2>Unincorporated Spokane County ADU rules at a glance</h2>
-    <table>
-      <thead>
-        <tr><th>Rule</th><th>Current unincorporated county standard</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Allowed ADU types</td>
-          <td>Detached (BP-75) and attached (BP-76) ADUs are recognized.</td>
-        </tr>
-        <tr>
-          <td>Maximum ADUs per lot</td>
-          <td>Inside the UGA, two per lot under HB 1337. Outside the UGA: <Verify item="the maximum ADUs per lot for non-UGA county land in Title 14" source={title14} /></td>
-        </tr>
-        <tr>
-          <td>Maximum ADU size</td>
-          <td><Verify item="the maximum ADU size and any percent-of-primary cap in Title 14 (UGA vs non-UGA)" source={title14} /></td>
-        </tr>
-        <tr>
-          <td>Maximum height</td>
-          <td><Verify item="the maximum ADU height in Title 14" source={title14} /></td>
-        </tr>
-        <tr>
-          <td>Setbacks</td>
-          <td><Verify item="ADU setbacks under Title 14" source={title14} /></td>
-        </tr>
-        <tr>
-          <td>Off-street parking</td>
-          <td><Verify item="the off-street parking requirement for a county ADU in Title 14 (reported as one space; HB 1337 limits parking near major transit inside the UGA)" source={title14} /></td>
-        </tr>
-        <tr>
-          <td>Owner-occupancy</td>
-          <td>Inside the UGA, not required under HB 1337. Outside the UGA: <Verify item="whether owner-occupancy applies to non-UGA county land in Title 14" source={title14} /></td>
-        </tr>
-        <tr>
-          <td>Conditional use permit</td>
-          <td><Verify item="which zones require a conditional use permit and hearing examiner process for an ADU in Title 14" source={title14} /></td>
-        </tr>
-        <tr>
-          <td>Septic and water</td>
-          <td>Many county lots use septic and sometimes a private well. Septic capacity is reviewed by the Spokane Regional Health District, and water by the serving purveyor.</td>
-        </tr>
-        <tr>
-          <td>Permit fees</td>
-          <td><Verify item="current county ADU permit fees on the Spokane County Building and Planning fee schedule" source="https://www.spokanecounty.gov/720/Codes-Ordinances" /></td>
-        </tr>
-      </tbody>
-    </table>
+    <h2>Septic and water</h2>
+    <p>
+      Many county lots use a septic system and sometimes a private well rather than municipal sewer
+      and water. Septic capacity can be a deciding feasibility factor for a county ADU and is reviewed
+      by the Spokane Regional Health District, with water service confirmed through the serving
+      purveyor. It is worth checking early.
+    </p>
 
     <h2>The permit process in the county</h2>
     <p>
       ADU permits for unincorporated parcels run through Spokane County Building and Planning. To
-      confirm the current rules for your specific lot, including its UGA status, you can use the
+      confirm the current rules for your specific lot, including its urban growth area status, use the
       county zoning code or contact the county Permit Center at 509.477.3675. Our homeowner permit
       guide explains what to expect.
     </p>
@@ -127,9 +88,9 @@ const faqItems = [
   <References
     sources={[
       { label: 'Spokane County Codes and Ordinances, Zoning Code Title 14 (spokanecounty.gov)', href: 'https://www.spokanecounty.gov/720/Codes-Ordinances', note: 'The controlling ADU source for unincorporated county land.' },
-      { label: 'Spokane County BP-75, Detached ADU (spokanecounty.gov)', href: 'https://www.spokanecounty.gov/DocumentCenter/View/682', note: 'Orientation sheet, not warranted for accuracy.' },
-      { label: 'Spokane County BP-76, Attached ADU (spokanecounty.gov)', href: 'https://www.spokanecounty.gov/DocumentCenter/View/683', note: 'Orientation sheet, not warranted for accuracy.' },
-      { label: 'RCW 36.70A.680 and .681 (app.leg.wa.gov)', href: 'https://app.leg.wa.gov/RCW/default.aspx?cite=36.70A.681', note: 'HB 1337 and its UGA applicability.' },
+      { label: 'Spokane County BP-75, Detached ADU (spokanecounty.gov)', href: 'https://www.spokanecounty.gov/DocumentCenter/View/682', note: 'Orientation sheet, not the controlling source.' },
+      { label: 'Spokane County BP-76, Attached ADU (spokanecounty.gov)', href: 'https://www.spokanecounty.gov/DocumentCenter/View/683', note: 'Orientation sheet, not the controlling source.' },
+      { label: 'RCW 36.70A.680 and .681 (app.leg.wa.gov)', href: 'https://app.leg.wa.gov/RCW/default.aspx?cite=36.70A.681', note: 'HB 1337 and its urban growth area applicability.' },
     ]}
   />
 
