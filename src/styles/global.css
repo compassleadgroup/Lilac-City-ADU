@@ -143,13 +143,4 @@
     background-color: var(--color-wheat-soft);
     font-weight: 600;
   }
-
-  /* Verify placeholder marker. The literal [VERIFY: ...] text stays in the
-     source per the accuracy mandate; this only makes it easy to spot. */
-  .verify {
-    background-color: #fff3d6;
-    border-bottom: 2px dotted var(--color-bark);
-    padding: 0 0.15rem;
-    font-style: normal;
-  }
 }

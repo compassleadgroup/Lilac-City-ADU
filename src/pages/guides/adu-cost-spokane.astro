@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import PageHero from '../../components/PageHero.astro';
-import Verify from '../../components/Verify.astro';
 import Faq from '../../components/Faq.astro';
 import References from '../../components/References.astro';
 import LinkCard from '../../components/LinkCard.astro';
@@ -12,10 +11,6 @@ const path = '/guides/adu-cost-spokane';
 const title = 'How Much Does an ADU Cost in Spokane? (2026 Guide)';
 const description =
   'A thorough, Spokane-specific ADU cost guide for 2026: cost by ADU type, what drives the price, permit and system development charges, and soft costs. Ranges, not quotes.';
-
-const costSrc = 'multiple current Spokane-area ADU contractor quotes, as of 2026';
-const feeSrcCounty = 'https://www.spokanecounty.gov/720/Codes-Ordinances (Spokane County Building and Planning fees)';
-const feeSrcValley = 'https://www.spokanevalleywa.gov/242/Residential-Building-Permits (Spokane Valley master fee schedule)';
 
 const faqItems = [
   {
@@ -125,22 +120,20 @@ const faqItems = [
           <td>City of Spokane</td>
           <td>
             Water GFC: 3,366 dollars for a 5/8 inch meter (typical for an ADU), 8,415 dollars for 1
-            inch, 26,930 dollars for 2 inch. Transportation impact fee for an ADU: about 106 dollars
-            in the high-density transit core, up to roughly 1,000 dollars farther out (SMC 17D.075).
-            Building permit fee is valuation-based, so use the city estimator. Sewer GFC (2026, phased,
-            final step this year): <Verify item="the exact 2026 sewer GFC amount" source="https://my.spokanecity.org/publicworks/general-facilities-charges/" />
+            inch, 26,930 dollars for 2 inch. Sewer GFC (2026): 4,887 dollars for a 5/8 inch meter (SMC
+            13.03.0734), so a typical ADU's water and sewer general facilities charges total about
+            8,253 dollars. Transportation impact fee for an ADU: about 106 dollars in the high-density
+            transit core, up to roughly 1,000 dollars farther out (SMC 17D.075). Building permit fee
+            is valuation-based, so use the city estimator.
           </td>
         </tr>
         <tr>
           <td>Unincorporated Spokane County</td>
-          <td><Verify item="Spokane County ADU permit fees and any applicable charges" source={feeSrcCounty} /></td>
+          <td>Confirm current ADU permit fees with Spokane County Building and Planning.</td>
         </tr>
         <tr>
           <td>Spokane Valley</td>
-          <td>
-            Exempts ADUs from impact fees. Other permit and connection fees:
-            <Verify item="Spokane Valley ADU permit and connection fees on the city master fee schedule" source={feeSrcValley} />
-          </td>
+          <td>Exempts ADUs from impact fees. Other permit and connection fees follow the city master fee schedule; confirm with the city.</td>
         </tr>
       </tbody>
     </table>
@@ -156,15 +149,10 @@ const faqItems = [
 
     <h2>Finish-level detail</h2>
     <p>
-      Finishes are where budgets flex the most. Flooring, countertops, cabinetry, and fixtures each
-      span an entry-level to high-end range. Specific per-unit and per-square-foot finish prices are
-      shown as verification placeholders until confirmed against current Spokane supplier and
-      installer pricing.
+      Interior finishes span a wide range. Budget-grade flooring, cabinetry, and fixtures keep a
+      project at the low end of these ranges, while premium finishes push toward the high end. Get a
+      fixed quote from your matched builder for your finish choices.
     </p>
-    <ul>
-      <li>Flooring: <Verify item="installed per-square-foot ranges for laminate and engineered hardwood in Spokane, as of 2026" source={costSrc} /></li>
-      <li>Countertops: <Verify item="typical installed countertop pricing for laminate and stone, as of 2026" source={costSrc} /></li>
-    </ul>
   </section>
 
   <Faq items={faqItems} heading="ADU cost questions" />

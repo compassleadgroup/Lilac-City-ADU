@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import PageHero from '../../components/PageHero.astro';
-import Verify from '../../components/Verify.astro';
 import Faq from '../../components/Faq.astro';
 import References from '../../components/References.astro';
 import LinkCard from '../../components/LinkCard.astro';
@@ -11,18 +10,16 @@ import GetMatchedCta from '../../components/GetMatchedCta.astro';
 const path = '/spokane/adu-rules-spokane-valley';
 const title = 'ADUs in Spokane Valley';
 const description =
-  'ADU rules for the City of Spokane Valley: two ADUs per lot and no owner-occupancy under HB 1337, the impact-fee exemption, and the local specifics to confirm with the city.';
-
-const svmc = 'https://ecode360.com/SP4654 and the city ADU page (SVMC 19.40.030)';
+  'ADU rules for the City of Spokane Valley: two ADUs per lot, no owner-occupancy, a 1,000 sq ft size floor and 24 ft height floor under HB 1337, and the impact-fee exemption.';
 
 const faqItems = [
   {
     q: 'Does Spokane Valley have its own ADU rules?',
-    a: 'Yes. The City of Spokane Valley is a separate jurisdiction with its own municipal code (SVMC 19.40.030) and permit center. Because the city is in an urban growth area, Washington HB 1337 governs and supersedes any conflicting local rule. Confirm the exact local numbers with the city.',
+    a: 'Yes, but as a Growth Management Act city inside an urban growth area, Spokane Valley is governed by Washington HB 1337, which sets the baseline. The city municipal code (SVMC 19.40.030) is still being updated to match state law. Confirm the exact local numbers with Spokane Valley Community Development.',
   },
   {
     q: 'Is owner occupancy required for a Spokane Valley ADU?',
-    a: 'No. Spokane Valley is in an urban growth area, so HB 1337 applies and prohibits owner-occupancy requirements. Older SVMC language requiring owner-occupancy predates HB 1337 and is preempted, except in a short-term rental situation.',
+    a: 'No. HB 1337 prohibits owner-occupancy requirements inside an urban growth area, except where the unit is used as a short-term rental. Older SVMC language requiring owner-occupancy predates HB 1337 and is superseded.',
   },
   {
     q: 'Does Spokane Valley charge impact fees on an ADU?',
@@ -35,63 +32,29 @@ const faqItems = [
   <PageHero
     eyebrow="Jurisdiction"
     title="ADUs in Spokane Valley"
-    lede="These rules apply to lots inside the City of Spokane Valley, a separate jurisdiction from the City of Spokane and unincorporated Spokane County. ADUs are governed by SVMC 19.40.030. Spokane Valley is in an urban growth area, so HB 1337 governs and supersedes any conflicting local rule."
+    lede="These rules apply to lots inside the City of Spokane Valley, a separate jurisdiction from the City of Spokane and unincorporated Spokane County. Because Spokane Valley is in an urban growth area, Washington HB 1337 governs ADUs here and sets the baseline."
     cta={{ href: '/get-matched', label: 'Get matched with a builder' }}
     secondary={{ href: '/guides/can-i-build-an-adu-spokane', label: 'Can I build an ADU?' }}
   />
 
   <section class="container-prose rich-text pb-2">
-    <h2>State law governs the baseline</h2>
+    <h2>State law sets the Spokane Valley baseline</h2>
     <p>
-      Because Spokane Valley is a Growth Management Act city inside an urban growth area, HB 1337 sets
-      the operative rules: at least two ADUs per lot, no owner-occupancy requirement, and a minimum
-      allowable ADU size of 1,000 square feet. The published SVMC still shows an older owner-occupancy
-      provision (the owner must occupy a unit for six or more months per year, with a recorded deed
-      restriction) adopted under Ordinance 21-010 in 2021. That language predates HB 1337 and is
-      preempted, so owner-occupancy is not a current requirement. The exact local size, height,
-      setback, and parking numbers should be confirmed with the city, which is updating its code.
+      Spokane Valley is a Growth Management Act city inside an urban growth area, so Washington's HB
+      1337 governs ADUs here. Under state law, Spokane Valley must allow at least two ADUs per lot,
+      may not require owner-occupancy (except where the unit is used as a short-term rental), may not
+      cap ADU size below 1,000 square feet, and may not cap ADU height below 24 feet. ADUs are also
+      exempt from Spokane Valley impact fees.
     </p>
-
-    <h2>Spokane Valley ADU rules at a glance</h2>
-    <table>
-      <thead>
-        <tr><th>Rule</th><th>Current Spokane Valley standard</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Allowed ADU types</td>
-          <td>Attached and detached ADUs, in zones that permit single-family dwellings (SVMC 19.40.030).</td>
-        </tr>
-        <tr>
-          <td>Maximum ADUs per lot</td>
-          <td>At least two per lot, required inside the urban growth area under HB 1337.</td>
-        </tr>
-        <tr>
-          <td>Owner-occupancy</td>
-          <td>Not required. HB 1337 preempts the older SVMC owner-occupancy provision, except in a short-term rental situation.</td>
-        </tr>
-        <tr>
-          <td>Minimum allowable size</td>
-          <td>At least 1,000 sq ft must be allowed (HB 1337). Older 50 percent and 300 sq ft figures are preempted.</td>
-        </tr>
-        <tr>
-          <td>Exact size, height, and setbacks</td>
-          <td><Verify item="the exact current ADU size, height, and setbacks in SVMC 19.40.030 and 19.70" source={svmc} /></td>
-        </tr>
-        <tr>
-          <td>Off-street parking</td>
-          <td><Verify item="the current ADU parking requirement (reported as one space; HB 1337 bars parking requirements within one-half mile of a major transit stop)" source={svmc} /></td>
-        </tr>
-        <tr>
-          <td>Impact fees</td>
-          <td>Spokane Valley exempts ADUs from impact fees.</td>
-        </tr>
-        <tr>
-          <td>Permit fees</td>
-          <td><Verify item="current Spokane Valley ADU permit fees on the city master fee schedule" source="https://www.spokanevalleywa.gov/242/Residential-Building-Permits" /></td>
-        </tr>
-      </tbody>
-    </table>
+    <p>
+      Spokane Valley's local municipal code is still being updated to match state law, and some
+      published materials may still reference older limits such as a lower height cap, a
+      percentage-of-primary size cap, or an owner-occupancy deed restriction. Where the local code is
+      stricter than HB 1337, state law controls for parcels inside the urban growth area.
+    </p>
+    <p>
+      Confirm how the current rules apply to your property with Spokane Valley Community Development.
+    </p>
 
     <h2>The permit process in Spokane Valley</h2>
     <p>

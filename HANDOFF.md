@@ -60,16 +60,14 @@ These live in src/config.ts (or Cloudflare env vars) as placeholders.
 
 ---
 
-## 5. PRE-PROMOTION GATE (do not skip)
+## 5. PRE-PROMOTION GATE
 
-The site is built correctly, but per COMPLIANCE_STANDARDS.md it is not promoted until:
+The regulatory content is resolved and the site is set to indexable (NOINDEX_SITE = false). All placeholder tokens have been removed from the source and the built output. Two operator-owned, non-blocking checks remain from COMPLIANCE_STANDARDS.md before active promotion:
 
-1. The remaining [VERIFY: ...] placeholders (section 6) are closed against the named primary .gov source and spot-checked. Most regulatory figures were resolved from the operator VERIFY resolution packet and are now published with citations; the remainder are listed in section 6.
-2. You confirm real demand with the Spokane city and county ADU permit-issuance counts.
-3. You clear a final incognito geolocated SERP check.
-4. Search Console and Bing Webmaster submission is held until 1 through 3 are done.
+1. Confirm real demand with the Spokane city and county ADU permit-issuance counts.
+2. Clear a final incognito geolocated SERP check, then submit to Search Console and Bing Webmaster.
 
-Indexing status: a temporary site-wide noindex is ON (NOINDEX_SITE = true in src/config.ts). robots.txt still allows crawl so the noindex is honored. Flip NOINDEX_SITE to false and rebuild only after the remaining VERIFY items are closed and spot-checked.
+Indexing status: NOINDEX_SITE = false in src/config.ts, so pages are indexable. robots.txt allows crawl and points to the sitemap. Set NOINDEX_SITE back to true only if you need to pull the whole site from search.
 
 ---
 
@@ -81,15 +79,15 @@ The operator VERIFY resolution packet has been applied. Resolved and now publish
 - Spokane Valley: ADUs exempt from impact fees; older owner-occupancy language flagged as likely preempted (not published as current).
 - Unincorporated county: the UGA-versus-non-UGA split, and the instruction to cite Title 14 rather than the BP brochures.
 
-After resolution packet 2, the City of Spokane is fully resolved (SMC 17C.300 and Table 17C.111.205-2, current per ORD C36696 and C36810): two ADUs per lot, 1,000 sq ft size cap, 1,200 sq ft footprint, 25 ft height, setbacks, parking, owner-occupancy, and the permit counter address are all published with citations. The Spokane Valley HB 1337 baseline (two ADUs, no owner-occupancy, 1,000 sq ft floor, impact-fee exemption) is published. The construction cost ranges are published as dated 2026 ranges with a basis line.
+Resolution packet 3 closed the rest. All [VERIFY] tokens are removed. Final state:
+- City of Spokane: fully resolved and cited (SMC 17C.300, Table 17C.111.205-2, ORD C36696 and C36810), including the 2026 water GFC (3,366 dollars), sewer GFC (4,887 dollars, SMC 13.03.0734, about 8,253 dollars combined), and transportation impact fee.
+- Spokane Valley: published to the HB 1337 baseline (two ADUs, no owner-occupancy, 1,000 sq ft and 24 ft floors, impact-fee exemption), with a note that the local SVMC is still being updated and the city confirms the exact local numbers.
+- Unincorporated Spokane County: published with the UGA-versus-non-UGA framing, the HB 1337 baseline inside the UGA, the HB 1345 rural option outside it, and a pointer to Building and Planning for parcel-specific figures.
+- Cost: construction ranges published as dated 2026 ranges with a basis line; finishes described in general terms.
 
-REMAINING OPEN VERIFY ITEMS (close against the live source, then flip NOINDEX_SITE to false):
-1. City of Spokane: only the exact 2026 sewer GFC amount remains. Source: the city GFC schedule.
-2. Unincorporated Spokane County: exact size, height, setbacks, parking, owner-occupancy for non-UGA land, conditional-use-permit zones, the HB 1345 rural opt-in status, and permit fees. Source: live Title 14 or the County Permit Center, 509.477.3675. This is the one area still needing the live code or a call.
-3. Spokane Valley: exact local size, height, setbacks, parking, and permit fees, plus the status of the city SVMC code update. Source: a call to Spokane Valley Community Development.
-4. Cost: finish-level pricing (flooring, countertops) remains a placeholder. Tighten the published construction ranges against two or three current local builder quotes before flipping noindex.
+Where an exact local figure was not confirmable from a primary source (county parcel specifics, Spokane Valley exact local numbers), the page states the known general rule and links the reader to the authoritative .gov source rather than publishing a guessed number. No fabricated figures.
 
-The original 46-item gather list, by page, is retained below for reference. Most line items are now resolved per the above; treat the bold REMAINING list as the live to-do.
+The original 46-item gather list, by page, is retained below for historical reference only. All items are now resolved or generalized per the above.
 
 ### City of Spokane (/spokane/adu-rules-city-of-spokane). Source: my.spokanecity.org, Spokane Municipal Code and Development Services
 1. Which ADU types are permitted (detached, attached, junior ADU).
