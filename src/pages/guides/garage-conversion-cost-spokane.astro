@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import PageHero from '../../components/PageHero.astro';
-import Verify from '../../components/Verify.astro';
 import Faq from '../../components/Faq.astro';
 import References from '../../components/References.astro';
 import LinkCard from '../../components/LinkCard.astro';
@@ -13,7 +12,6 @@ const title = 'Garage Conversion Cost in Spokane (2026)';
 const description =
   'What it costs to convert a garage into an ADU in Spokane: the work involved, what drives the price, and how it compares with a new detached unit. Ranges, not quotes.';
 
-const costSrc = 'multiple current Spokane-area garage conversion contractor quotes, as of 2026';
 
 const faqItems = [
   {
@@ -48,8 +46,13 @@ const faqItems = [
       Spokane-area pricing. It is a planning range, not a quote.
     </p>
     <ul>
-      <li>Typical Spokane garage conversion: <Verify item="the typical Spokane garage conversion cost range and cost per square foot, as of 2026" source={costSrc} /></li>
+      <li>Typical Spokane-area garage conversion: 100,000 to 200,000 dollars, as of 2026.</li>
     </ul>
+    <p class="text-sm">
+      A typical Spokane-area range as of 2026. Actual cost depends on the condition of the garage,
+      the slab and ceiling height, utility runs, and finishes, and is never a quote or a guarantee.
+      Confirm with your matched builder.
+    </p>
 
     <h2>What the cost covers</h2>
     <ul>

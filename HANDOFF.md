@@ -81,11 +81,13 @@ The operator VERIFY resolution packet has been applied. Resolved and now publish
 - Spokane Valley: ADUs exempt from impact fees; older owner-occupancy language flagged as likely preempted (not published as current).
 - Unincorporated county: the UGA-versus-non-UGA split, and the instruction to cite Title 14 rather than the BP brochures.
 
+After resolution packet 2, the City of Spokane is fully resolved (SMC 17C.300 and Table 17C.111.205-2, current per ORD C36696 and C36810): two ADUs per lot, 1,000 sq ft size cap, 1,200 sq ft footprint, 25 ft height, setbacks, parking, owner-occupancy, and the permit counter address are all published with citations. The Spokane Valley HB 1337 baseline (two ADUs, no owner-occupancy, 1,000 sq ft floor, impact-fee exemption) is published. The construction cost ranges are published as dated 2026 ranges with a basis line.
+
 REMAINING OPEN VERIFY ITEMS (close against the live source, then flip NOINDEX_SITE to false):
-1. City of Spokane: exact maximum ADU size, exact height standard, and post-amendment setbacks. Source: live SMC 17C.300.130. Also the exact 2026 sewer GFC amount, and confirm the Development Services Center address.
-2. Unincorporated Spokane County: exact size, height, setbacks, parking, owner-occupancy for non-UGA land, conditional-use-permit zones, and permit fees. Source: live Title 14 or the County Permit Center, 509.477.3675.
-3. Spokane Valley: whether the city has adopted its HB 1337 update (two ADUs per lot, removal of owner-occupancy), plus exact size, height, setbacks, parking, and permit fees. Source: live SVMC 19.40.030 and the city.
-4. Construction cost ranges (not part of the regulatory packet): new detached, attached, garage conversion, basement and JADU ranges, and finish-level pricing. These remain dated-range placeholders pending current Spokane contractor pricing.
+1. City of Spokane: only the exact 2026 sewer GFC amount remains. Source: the city GFC schedule.
+2. Unincorporated Spokane County: exact size, height, setbacks, parking, owner-occupancy for non-UGA land, conditional-use-permit zones, the HB 1345 rural opt-in status, and permit fees. Source: live Title 14 or the County Permit Center, 509.477.3675. This is the one area still needing the live code or a call.
+3. Spokane Valley: exact local size, height, setbacks, parking, and permit fees, plus the status of the city SVMC code update. Source: a call to Spokane Valley Community Development.
+4. Cost: finish-level pricing (flooring, countertops) remains a placeholder. Tighten the published construction ranges against two or three current local builder quotes before flipping noindex.
 
 The original 46-item gather list, by page, is retained below for reference. Most line items are now resolved per the above; treat the bold REMAINING list as the live to-do.
 
