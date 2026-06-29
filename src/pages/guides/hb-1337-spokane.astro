@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import PageHero from '../../components/PageHero.astro';
-import Verify from '../../components/Verify.astro';
 import Faq from '../../components/Faq.astro';
 import References from '../../components/References.astro';
 import LinkCard from '../../components/LinkCard.astro';
@@ -11,23 +10,22 @@ import GetMatchedCta from '../../components/GetMatchedCta.astro';
 const path = '/guides/hb-1337-spokane';
 const title = 'HB 1337 Explained for Spokane Homeowners';
 const description =
-  'What Washington HB 1337 (2023) changed for ADUs and what it means for Spokane-area lots: ADU counts, owner-occupancy, near-transit parking, and the compliance timeline.';
+  'What Washington HB 1337 (2023) changed for ADUs and what it means for Spokane-area lots: two ADUs per lot, no owner-occupancy, parking near transit, size and height floors, and impact fees.';
 
-const rcw = 'https://app.leg.wa.gov (HB 1337 text and RCW 36.70A)';
-const commerce = 'https://www.commerce.wa.gov (WA Department of Commerce ADU guidance)';
+const rcw681 = 'https://app.leg.wa.gov/RCW/default.aspx?cite=36.70A.681';
 
 const faqItems = [
   {
     q: 'What is HB 1337?',
-    a: 'HB 1337 is a Washington state law passed in 2023 that addresses accessory dwelling units. It directs many Growth Management Act cities and counties to update their local ADU regulations, with changes to how ADUs are allowed, owner-occupancy requirements, and parking near major transit.',
+    a: 'HB 1337 is a Washington state law passed in 2023 that makes accessory dwelling units easier to build. It is codified mainly at RCW 36.70A.680 and 36.70A.681 and directs cities and counties planning under the Growth Management Act to allow more ADUs inside urban growth areas, with limits on owner-occupancy, parking, size, and fees.',
   },
   {
-    q: 'Does HB 1337 apply in the Spokane area?',
-    a: 'Spokane is a Growth Management Act jurisdiction in an Urban Growth Area, so HB 1337 applies. How each local jurisdiction implements the law can vary, so confirm the current adopted rules for the City of Spokane, Spokane County, or Spokane Valley.',
+    q: 'How many ADUs does HB 1337 allow on one lot?',
+    a: 'Within an urban growth area, covered jurisdictions must allow at least two ADUs on lots that permit single-family homes, configured as one attached plus one detached unit, or two detached units (RCW 36.70A.681). Local code controls the details, so confirm how your jurisdiction has adopted it.',
   },
   {
     q: 'Did HB 1337 remove owner-occupancy requirements?',
-    a: 'HB 1337 limits owner-occupancy requirements for ADUs in covered jurisdictions, so older owner-occupancy language may no longer apply. Confirm the current rule for your jurisdiction before relying on it.',
+    a: 'Yes. A covered city or county may not require the owner to live in the ADU or another unit on the lot (RCW 36.70A.681). Older local owner-occupancy rules are generally superseded, though you should confirm your jurisdiction has updated its code.',
   },
 ];
 ---
@@ -36,7 +34,7 @@ const faqItems = [
   <PageHero
     eyebrow="Guide"
     title="HB 1337 explained for Spokane homeowners"
-    lede="Washington passed HB 1337 in 2023 to make accessory dwelling units easier to build statewide. Here is what it changed in plain language, what it means for Spokane-area lots, and where the local details still need to be confirmed."
+    lede="Washington passed HB 1337 in 2023 to make accessory dwelling units easier to build statewide. Here is what it requires in plain language, cited to the statute, what it means for Spokane-area lots, and where the local details still need confirming."
     cta={{ href: '/get-matched', label: 'Get matched with a builder' }}
     secondary={{ href: '/spokane', label: 'Rules by jurisdiction' }}
   />
@@ -44,62 +42,84 @@ const faqItems = [
   <section class="container-prose rich-text pb-2">
     <h2>What HB 1337 is</h2>
     <p>
-      HB 1337 is a 2023 Washington law that directs many Growth Management Act cities and counties to
-      update their ADU rules so that accessory dwelling units are easier to build. It works alongside
-      the Growth Management Act in RCW 36.70A. The goal is more housing options on existing
-      residential lots.
+      HB 1337 is a 2023 Washington law that directs cities and counties planning under the Growth
+      Management Act (GMA) to update their ADU rules so accessory dwelling units are easier to build.
+      It is codified mainly at RCW 36.70A.680 and RCW 36.70A.681 and applies inside urban growth
+      areas. The goal is more housing options on existing residential lots.
     </p>
 
-    <h2>What it is understood to change</h2>
+    <h2>What HB 1337 requires</h2>
     <p>
-      The law addresses several areas. Because the exact thresholds and how each local jurisdiction
-      adopts them carry real consequences, the specific figures below are flagged for verification
-      against the statute and the Department of Commerce guidance.
+      The following come from the statute itself. Local code carries the exact implementing language,
+      so each jurisdiction page cites the local section.
     </p>
     <ul>
       <li>
-        <strong>How many ADUs are allowed:</strong>
-        <Verify item="the number of ADUs per lot HB 1337 requires covered jurisdictions to allow" source={rcw} />
+        <strong>At least two ADUs per lot in urban growth areas.</strong> On lots that allow
+        single-family homes, jurisdictions must permit two ADUs, as one attached plus one detached
+        unit, or two detached units (RCW 36.70A.681(1)(c)).
       </li>
       <li>
-        <strong>Owner-occupancy:</strong>
-        <Verify item="the extent to which HB 1337 limits owner-occupancy requirements" source={rcw} />
+        <strong>No owner-occupancy requirement.</strong> A city or county may not require the owner to
+        live in the ADU or in another unit on the lot (RCW 36.70A.681(1)(b)).
       </li>
       <li>
-        <strong>Parking near transit:</strong>
-        <Verify item="the limits HB 1337 places on ADU parking requirements near major transit" source={rcw} />
+        <strong>No off-street parking near major transit.</strong> A jurisdiction may not require
+        off-street parking for an ADU near a major transit stop (RCW 36.70A.681).
       </li>
       <li>
-        <strong>Minimum size allowance:</strong>
-        <Verify item="any minimum ADU size jurisdictions must allow under HB 1337" source={rcw} />
+        <strong>Size floor.</strong> A jurisdiction may not set a maximum ADU size below 1,000 square
+        feet, so an ADU of at least 1,000 square feet must be allowed (RCW 36.70A.681(1)(f)).
+      </li>
+      <li>
+        <strong>Height floor.</strong> A jurisdiction may not limit ADU roof height below 24 feet,
+        unless the limit on the principal dwelling is lower (RCW 36.70A.681(1)(g)).
+      </li>
+      <li>
+        <strong>Impact fees capped.</strong> ADU impact fees may not exceed 50 percent of the fees
+        that would be charged for the principal unit (RCW 36.70A.681(1)(a)).
+      </li>
+      <li>
+        <strong>No required street improvements.</strong> Street improvements may not be required as a
+        condition of permitting an ADU (RCW 36.70A.681(1)(l)).
       </li>
     </ul>
+
+    <h2>Where HB 1337 applies: urban growth areas</h2>
+    <p>
+      HB 1337 applies to GMA jurisdictions within urban growth areas (UGAs). The City of Spokane and
+      Spokane Valley are inside the UGA, so the requirements apply there. For unincorporated Spokane
+      County, the rules apply to the UGA portions of the county; outside the UGA, the county retains
+      more discretion (RCW 36.70A.680(2)). This is why the county page treats UGA and non-UGA land
+      separately.
+    </p>
 
     <h2>The compliance timeline</h2>
     <p>
-      HB 1337 set a timeline for jurisdictions to adopt compliant ADU rules. The reported Spokane-area
-      compliance date should be confirmed, along with whether each local jurisdiction has fully
-      adopted its updated code.
+      HB 1337 takes effect for each jurisdiction after its next periodic comprehensive plan update
+      under the GMA, and it preempts conflicting local rules if the jurisdiction has not adopted
+      compliant regulations (RCW 36.70A.680(1)(a)). It is tied to the GMA update cycle rather than one
+      statewide calendar date, and the Spokane-area cycle placed compliance in the 2025 timeframe.
+      Confirm whether your specific jurisdiction has adopted its update.
     </p>
-    <ul>
-      <li>Compliance date and current adoption status: <Verify item="the HB 1337 compliance deadline and whether the City of Spokane, Spokane County, and Spokane Valley have adopted compliant ADU codes" source={commerce} /></li>
-    </ul>
 
     <h2>What it means for your lot</h2>
     <p>
       If you read an older Spokane ADU document that lists a single-ADU-per-lot limit, an
-      owner-occupancy requirement, or strict parking minimums, treat those as possibly outdated. The
-      current rule is whatever your jurisdiction has adopted to comply with HB 1337. Check your
-      jurisdiction page, and confirm with the jurisdiction before you plan around any specific
-      number.
+      owner-occupancy requirement, or strict parking minimums, treat those as superseded by HB 1337
+      inside a UGA. Where an older local figure conflicts with the statute and the jurisdiction has
+      not yet adopted a compliant rule, the statute controls. Check your jurisdiction page for the
+      current local citation.
     </p>
 
     <h2>Where local details are still being confirmed</h2>
     <p>
-      State law sets the floor, but each city and county writes the local code that a permit is
-      actually reviewed against. That is why every jurisdiction-specific figure on this site is
-      verified against the local source or flagged. We would rather flag an item than publish a
-      number that is out of date.
+      State law sets the floor, but each city and county writes the local code a permit is reviewed
+      against. A few local specifics are still being confirmed against the live local code: the City
+      of Spokane exact maximum ADU size and post-amendment setbacks, the unincorporated county rules
+      split between UGA and non-UGA land, and whether Spokane Valley has adopted its HB 1337 update or
+      is still showing superseded owner-occupancy language. Those are flagged on the jurisdiction
+      pages.
     </p>
   </section>
 
@@ -107,8 +127,9 @@ const faqItems = [
 
   <References
     sources={[
-      { label: 'Washington HB 1337 and RCW 36.70A (app.leg.wa.gov)', href: 'https://app.leg.wa.gov', note: 'The statute text and the Growth Management Act.' },
-      { label: 'WA Department of Commerce ADU guidance (commerce.wa.gov)', href: 'https://www.commerce.wa.gov', note: 'State guidance on ADU rules.' },
+      { label: 'RCW 36.70A.681 (app.leg.wa.gov)', href: 'https://app.leg.wa.gov/RCW/default.aspx?cite=36.70A.681', note: 'The ADU requirements: counts, owner-occupancy, parking, size, height, fees.' },
+      { label: 'RCW 36.70A.680 (app.leg.wa.gov)', href: 'https://app.leg.wa.gov/RCW/default.aspx?cite=36.70A.680', note: 'Applicability, effective timing, and preemption.' },
+      { label: 'WA Department of Commerce ADU guidance (commerce.wa.gov)', href: 'https://www.commerce.wa.gov/growth-management/housing-planning/adus/', note: 'State guidance on ADU rules.' },
     ]}
   />
 

@@ -11,31 +11,32 @@ import GetMatchedCta from '../../components/GetMatchedCta.astro';
 const path = '/spokane/adu-rules-city-of-spokane';
 const title = 'ADUs in the City of Spokane';
 const description =
-  'Current ADU rules for homeowners inside Spokane city limits: allowed types, size, height, setbacks, parking, owner-occupancy under HB 1337, the permit process, and fees.';
+  'Current ADU rules for homeowners inside Spokane city limits: two ADUs per lot, no owner-occupancy, parking, size and height floors under HB 1337, the permit process, and fees.';
 
-const src = 'https://my.spokanecity.org (Spokane Municipal Code and Development Services)';
+const smc = 'https://my.spokanecity.org/smc/?Chapter=17C.300';
+const smc130 = 'https://my.spokanecity.org/smc/?Section=17C.300.130';
 
 const faqItems = [
   {
     q: 'Do I need a permit to build an ADU in the City of Spokane?',
-    a: 'Yes. An ADU is a building project and requires permits from the City of Spokane. The builder you are matched with manages the permit process with the city. See our Spokane ADU permits guide for the steps.',
+    a: 'Yes. An ADU requires a building permit and a certificate of occupancy from City of Spokane Building Services, reviewed under Spokane Municipal Code Chapter 17C.300. The builder you are matched with manages the permit process. See our Spokane ADU permits guide.',
   },
   {
     q: 'How many ADUs can I have on one lot in the City of Spokane?',
-    a: 'Washington HB 1337 (2023) changed how many ADUs jurisdictions must allow, and an older 2016 city overview that referenced a single-ADU limit may be out of date. Confirm the current count for your lot with the City of Spokane before relying on any figure.',
+    a: 'The city amended its code to allow up to two ADUs per lot in its residential zones, consistent with Washington HB 1337, which requires two ADUs per lot inside urban growth areas. The older 2016 one-ADU-per-lot rule is superseded. Confirm the current detail for your zone with the city.',
   },
   {
-    q: 'Is owner occupancy required for a Spokane ADU after HB 1337?',
-    a: 'HB 1337 limits owner-occupancy requirements for ADUs in covered jurisdictions, so older owner-occupancy language may no longer apply. Confirm the current City of Spokane rule before you plan around it.',
+    q: 'Is owner occupancy required for a Spokane ADU?',
+    a: 'No, not as a general rule. The City of Spokane removed the general owner-occupancy requirement, consistent with HB 1337. Owner-occupancy can still apply where the lot also operates a short-term rental under Spokane Municipal Code Chapter 17C.316. Confirm your situation with the city.',
   },
 ];
 ---
-<BaseLayout title={title} description={description} path={path} schema={undefined}>
+<BaseLayout title={title} description={description} path={path}>
   <Breadcrumbs items={[{ label: 'Spokane rules', href: '/spokane' }, { label: 'City of Spokane', href: path }]} />
   <PageHero
     eyebrow="Jurisdiction"
     title="ADUs in the City of Spokane"
-    lede="These rules apply to lots inside Spokane city limits. The City of Spokane is a Growth Management Act city in an Urban Growth Area, so Washington HB 1337 applies. Several older city figures may be superseded, so each specific below is flagged for verification against the current city source."
+    lede="These rules apply to lots inside Spokane city limits. The City of Spokane is a Growth Management Act city in an urban growth area, so Washington HB 1337 applies and several older city figures are superseded. ADUs are governed by Spokane Municipal Code Chapter 17C.300."
     cta={{ href: '/get-matched', label: 'Get matched with a builder' }}
     secondary={{ href: '/guides/can-i-build-an-adu-spokane', label: 'Can I build an ADU?' }}
   />
@@ -43,11 +44,11 @@ const faqItems = [
   <section class="container-prose rich-text pb-2">
     <h2>How to use this page</h2>
     <p>
-      Every regulatory specific on this page is shown as a verification placeholder until it is
-      confirmed against the City of Spokane Municipal Code and Development Services materials. We do
-      this deliberately: ADU rules carry real cost and legal consequences, and an older 2016 city
-      overview is likely stale after HB 1337. Do not rely on a figure here until the operator has
-      replaced its placeholder with a cited value.
+      Where a rule is confirmed against the Spokane Municipal Code or the HB 1337 statute, it is
+      stated with its citation. A few exact figures are still being confirmed against the live code
+      section and are marked accordingly. The older 2016 city figures (a 60 foot front setback, five
+      foot side and rear setbacks, one ADU per lot, and owner-occupancy) are superseded by HB 1337
+      and are not published here.
     </p>
 
     <h2>City of Spokane ADU rules at a glance</h2>
@@ -58,58 +59,75 @@ const faqItems = [
       <tbody>
         <tr>
           <td>Allowed ADU types</td>
-          <td><Verify item="which ADU types are permitted (detached, attached, junior ADU)" source={src} /></td>
+          <td>Detached and attached ADUs (SMC Chapter 17C.300). HB 1337 requires both within the urban growth area.</td>
         </tr>
         <tr>
           <td>Maximum ADUs per lot</td>
-          <td><Verify item="the maximum number of ADUs per lot after HB 1337 (a 2016 city overview referenced one per lot, likely superseded)" source={src} /></td>
+          <td>Up to two per lot in the residential zones (RA, R1, R2, RMF, RHD), amended from one, consistent with HB 1337 (SMC Chapter 17C.300).</td>
         </tr>
         <tr>
           <td>Maximum ADU size</td>
-          <td><Verify item="the maximum ADU size and any percent-of-primary-dwelling cap" source={src} /></td>
+          <td>At least 1,000 sq ft must be allowed under HB 1337. Exact city maximum: <Verify item="the exact maximum ADU size in SMC 17C.300.130(A)" source={smc130} /></td>
         </tr>
         <tr>
           <td>Maximum height</td>
-          <td><Verify item="the maximum ADU height" source={src} /></td>
+          <td>At least 24 ft must be allowed under HB 1337, unless the principal dwelling limit is lower. Exact city standard: <Verify item="the exact ADU height standard in SMC 17C.300.130" source={smc130} /></td>
         </tr>
         <tr>
           <td>Setbacks</td>
-          <td><Verify item="front, side, and rear setbacks for an ADU" source={src} /></td>
+          <td><Verify item="the post-amendment ADU setbacks in SMC 17C.300.130 (the 2016 figures of a 60 ft front and 5 ft side and rear are superseded)" source={smc130} /></td>
         </tr>
         <tr>
           <td>Off-street parking</td>
-          <td><Verify item="whether off-street parking is required and any near-transit exemption under HB 1337" source={src} /></td>
+          <td>Studio and one-bedroom ADUs require no additional parking; otherwise parking follows Table 17C.230.130-1. HB 1337 also bars off-street parking requirements near a major transit stop.</td>
         </tr>
         <tr>
           <td>Owner-occupancy</td>
-          <td><Verify item="whether owner-occupancy is required, given HB 1337 limits on such requirements" source={src} /></td>
+          <td>Not required as a general rule. It can apply only where the lot also operates a short-term rental (SMC Chapter 17C.316).</td>
         </tr>
         <tr>
-          <td>Permit fees and any system development charges</td>
-          <td><Verify item="current ADU permit fees and any applicable system development charges" source={src} /></td>
+          <td>Permit</td>
+          <td>A building permit plus a certificate of occupancy from City of Spokane Building Services.</td>
         </tr>
       </tbody>
     </table>
 
-    <h2>The HB 1337 stale-data flag</h2>
+    <h2>Fees: permit, water and sewer charges, and impact fees</h2>
     <p>
-      Washington HB 1337 (2023) directed Growth Management Act jurisdictions to update local ADU
-      rules, with a compliance timeline in 2025. Older City of Spokane documents written before that
-      update may no longer reflect current limits on ADU count, owner-occupancy, or near-transit
-      parking. Where an older city figure conflicts with HB 1337, treat the older figure as suspect
-      until confirmed. Our HB 1337 guide explains the law in plain language.
+      In Washington, the charge people often call a system development charge is the general
+      facilities charge (GFC) for water and sewer, plus the transportation impact fee. For the City
+      of Spokane:
     </p>
+    <ul>
+      <li>
+        <strong>Water general facilities charge (2026):</strong> 3,366 dollars for a 5/8 inch meter
+        (typical for an ADU), 8,415 dollars for a 1 inch meter, and 26,930 dollars for a 2 inch meter
+        (City of Spokane GFC schedule).
+      </li>
+      <li>
+        <strong>Sewer general facilities charge (2026):</strong> a phased increase with the final
+        step in 2026. Exact figure: <Verify item="the exact 2026 sewer GFC amount on the City of Spokane GFC schedule" source="https://my.spokanecity.org/publicworks/general-facilities-charges/" />
+      </li>
+      <li>
+        <strong>Transportation impact fee for an ADU:</strong> as low as about 106 dollars in the
+        high-density transit core, up to roughly 1,000 dollars farther from the core (SMC 17D.075).
+        HB 1337 also caps ADU impact fees at 50 percent of the principal unit's.
+      </li>
+      <li>
+        <strong>Building permit fee:</strong> valuation-based, so there is no single flat figure. Use
+        the city's official residential fee estimator to estimate it.
+      </li>
+    </ul>
 
     <h2>The permit process in the City of Spokane</h2>
     <p>
-      ADU permitting in the city runs through the City of Spokane Development Services Center, which
-      reviews zoning and building requirements and issues the permits. The exact submittal
-      requirements, review steps, and fees should be confirmed with the city. Our homeowner permit
-      guide walks through what to expect without copying the application form.
+      ADU permitting runs through the City of Spokane Development Services Center, which reviews
+      zoning and building requirements and issues the permits. Our homeowner permit guide walks
+      through what to expect without copying the application form.
     </p>
     <p>
-      City of Spokane Development Services Center address:
-      <Verify item="the current Development Services Center address (a city document lists 808 West Spokane Falls Boulevard, Spokane, WA 99201-3336)" source={src} />
+      City of Spokane Development Services Center:
+      <Verify item="the current Development Services Center address (reported as 808 West Spokane Falls Boulevard, 3rd Floor, City Hall, Spokane, WA 99201)" source="https://my.spokanecity.org/business/residential/permit-process/" />
     </p>
   </section>
 
@@ -117,9 +135,10 @@ const faqItems = [
 
   <References
     sources={[
-      { label: 'City of Spokane (my.spokanecity.org)', href: 'https://my.spokanecity.org', note: 'Spokane Municipal Code and Development Services ADU materials.' },
-      { label: 'City of Spokane documents (static.spokanecity.org)', href: 'https://static.spokanecity.org', note: 'Permit and overview documents. Confirm any 2016 figures are superseded.' },
-      { label: 'Washington HB 1337 and RCW 36.70A', href: 'https://app.leg.wa.gov', note: 'State ADU law and the Growth Management Act.' },
+      { label: 'Spokane Municipal Code Chapter 17C.300, Accessory Dwelling Units (my.spokanecity.org)', href: 'https://my.spokanecity.org/smc/?Chapter=17C.300', note: 'ADU types, count, size, height, setbacks, parking, owner-occupancy.' },
+      { label: 'City of Spokane residential fee estimator (my.spokanecity.org)', href: 'https://my.spokanecity.org/business/residential/fee-calculators/', note: 'Valuation-based building permit fee.' },
+      { label: 'City of Spokane general facilities charges (my.spokanecity.org)', href: 'https://my.spokanecity.org/publicworks/general-facilities-charges/', note: 'Water and sewer GFC schedule and zone map.' },
+      { label: 'RCW 36.70A.681 (app.leg.wa.gov)', href: 'https://app.leg.wa.gov/RCW/default.aspx?cite=36.70A.681', note: 'HB 1337 ADU requirements.' },
     ]}
   />
 
@@ -128,7 +147,7 @@ const faqItems = [
     <div class="mt-6 grid gap-5 sm:grid-cols-3">
       <LinkCard href="/guides/adu-permits-spokane" eyebrow="Guide" title="ADU Permits in Spokane" blurb="The homeowner walkthrough of the permit process." />
       <LinkCard href="/guides/adu-cost-spokane" eyebrow="Guide" title="ADU Cost in Spokane" blurb="Dated cost ranges with basis." />
-      <LinkCard href="/guides/can-i-build-an-adu-spokane" eyebrow="Guide" title="Can I Build an ADU?" blurb="A feasibility checklist for your lot." />
+      <LinkCard href="/guides/hb-1337-spokane" eyebrow="Guide" title="HB 1337 Explained" blurb="The state law behind these rules." />
     </div>
   </section>
 

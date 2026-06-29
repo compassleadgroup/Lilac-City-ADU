@@ -64,18 +64,30 @@ These live in src/config.ts (or Cloudflare env vars) as placeholders.
 
 The site is built correctly, but per COMPLIANCE_STANDARDS.md it is not promoted until:
 
-1. Every [VERIFY: ...] placeholder in section 6 is replaced with a figure confirmed against the named primary .gov source and cited.
+1. The remaining [VERIFY: ...] placeholders (section 6) are closed against the named primary .gov source and spot-checked. Most regulatory figures were resolved from the operator VERIFY resolution packet and are now published with citations; the remainder are listed in section 6.
 2. You confirm real demand with the Spokane city and county ADU permit-issuance counts.
 3. You clear a final incognito geolocated SERP check.
 4. Search Console and Bing Webmaster submission is held until 1 through 3 are done.
 
-Indexing note: robots.txt currently allows crawl (the correct end state). Because the live pages still render literal [VERIFY: ...] text until you resolve them, consider keeping the deployment private, or ask for a temporary site-wide noindex, until the placeholders are filled. The layout already supports a per-page noindex flag if you want to gate specific pages.
+Indexing status: a temporary site-wide noindex is ON (NOINDEX_SITE = true in src/config.ts). robots.txt still allows crawl so the noindex is honored. Flip NOINDEX_SITE to false and rebuild only after the remaining VERIFY items are closed and spot-checked.
 
 ---
 
-## 6. EVERY [VERIFY: ...] PLACEHOLDER, BY PAGE
+## 6. VERIFY PLACEHOLDERS: RESOLUTION STATUS
 
-46 placeholders across 8 pages. Each must be confirmed against the named primary source, then cited inline and in that page References section. Watch the HB 1337 stale-data trap on every count, owner-occupancy, and parking item.
+The operator VERIFY resolution packet has been applied. Resolved and now published with citations:
+- State baseline (HB 1337 / RCW 36.70A.681 and .680): two ADUs per lot in UGAs, no owner-occupancy, no parking near major transit, 1,000 sq ft size floor, 24 ft height floor, impact fees capped at 50 percent, no required street improvements, GMA-cycle effective and preemption.
+- City of Spokane: one-to-two ADU change, owner-occupancy removed (except with a short-term rental), parking rule, permit path, water GFC (3,366 / 8,415 / 26,930 dollars by meter, 2026), transportation impact fee (about 106 to 1,000 dollars, SMC 17D.075), valuation-based building permit (estimator).
+- Spokane Valley: ADUs exempt from impact fees; older owner-occupancy language flagged as likely preempted (not published as current).
+- Unincorporated county: the UGA-versus-non-UGA split, and the instruction to cite Title 14 rather than the BP brochures.
+
+REMAINING OPEN VERIFY ITEMS (close against the live source, then flip NOINDEX_SITE to false):
+1. City of Spokane: exact maximum ADU size, exact height standard, and post-amendment setbacks. Source: live SMC 17C.300.130. Also the exact 2026 sewer GFC amount, and confirm the Development Services Center address.
+2. Unincorporated Spokane County: exact size, height, setbacks, parking, owner-occupancy for non-UGA land, conditional-use-permit zones, and permit fees. Source: live Title 14 or the County Permit Center, 509.477.3675.
+3. Spokane Valley: whether the city has adopted its HB 1337 update (two ADUs per lot, removal of owner-occupancy), plus exact size, height, setbacks, parking, and permit fees. Source: live SVMC 19.40.030 and the city.
+4. Construction cost ranges (not part of the regulatory packet): new detached, attached, garage conversion, basement and JADU ranges, and finish-level pricing. These remain dated-range placeholders pending current Spokane contractor pricing.
+
+The original 46-item gather list, by page, is retained below for reference. Most line items are now resolved per the above; treat the bold REMAINING list as the live to-do.
 
 ### City of Spokane (/spokane/adu-rules-city-of-spokane). Source: my.spokanecity.org, Spokane Municipal Code and Development Services
 1. Which ADU types are permitted (detached, attached, junior ADU).

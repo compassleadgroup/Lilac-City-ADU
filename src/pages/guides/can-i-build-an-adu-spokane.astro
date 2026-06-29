@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import PageHero from '../../components/PageHero.astro';
-import Verify from '../../components/Verify.astro';
 import Faq from '../../components/Faq.astro';
 import References from '../../components/References.astro';
 import MatchForm from '../../components/MatchForm.astro';
@@ -52,7 +51,7 @@ const faqItems = [
       and may have changed after HB 1337. Confirm what your zone allows.
     </p>
     <ul>
-      <li>Allowed ADU types for your zone: <Verify item="allowed ADU types and counts for the homeowner's specific zone and jurisdiction" source="the relevant jurisdiction page (spokanecity.org, spokanecounty.gov, or spokanevalleywa.gov)" /></li>
+      <li>Inside an urban growth area, HB 1337 requires jurisdictions to allow up to two ADUs per lot, detached or attached, on lots that permit single-family homes (RCW 36.70A.681). Your exact zone rules are on your jurisdiction page: <a href="/spokane/adu-rules-city-of-spokane">City of Spokane</a>, <a href="/spokane/adu-rules-spokane-county">Spokane County</a>, or <a href="/spokane/adu-rules-spokane-valley">Spokane Valley</a>.</li>
     </ul>
 
     <h2>3. Measure your lot against setbacks and size</h2>
@@ -61,7 +60,7 @@ const faqItems = [
       leaving room for access and any required separation from the main house.
     </p>
     <ul>
-      <li>Setbacks and size caps: <Verify item="setbacks, maximum ADU size, and height for the homeowner's jurisdiction" source="the relevant jurisdiction page" /></li>
+      <li>HB 1337 requires jurisdictions to allow an ADU of at least 1,000 square feet and a roof height of at least 24 feet (RCW 36.70A.681). Your jurisdiction's exact setbacks and size caps are on its rules page, where any figure still being confirmed is flagged.</li>
     </ul>
 
     <h2>4. Confirm utility access</h2>

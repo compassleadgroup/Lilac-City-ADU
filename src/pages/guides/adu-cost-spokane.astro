@@ -14,9 +14,8 @@ const description =
   'A thorough, Spokane-specific ADU cost guide for 2026: cost by ADU type, what drives the price, permit and system development charges, and soft costs. Ranges, not quotes.';
 
 const costSrc = 'multiple current Spokane-area ADU contractor quotes, as of 2026';
-const feeSrcCity = 'https://my.spokanecity.org (City of Spokane fee schedule)';
-const feeSrcCounty = 'https://www.spokanecounty.gov (Spokane County Building and Planning fees)';
-const feeSrcValley = 'https://www.spokanevalleywa.gov (Spokane Valley fee schedule)';
+const feeSrcCounty = 'https://www.spokanecounty.gov/720/Codes-Ordinances (Spokane County Building and Planning fees)';
+const feeSrcValley = 'https://www.spokanevalleywa.gov/242/Residential-Building-Permits (Spokane Valley master fee schedule)';
 
 const faqItems = [
   {
@@ -103,17 +102,25 @@ const faqItems = [
 
     <h2>Permit fees and system development charges by jurisdiction</h2>
     <p>
-      Permit fees and any system development charges depend on which jurisdiction issues the permit
-      and which utilities connect. Confirm each against the jurisdiction fee schedule.
+      In Washington, the charge people often call a system development charge is the general
+      facilities charge (GFC) for water and sewer, plus the transportation impact fee. These depend on
+      the jurisdiction and the utilities that connect. HB 1337 caps ADU impact fees at 50 percent of
+      what the principal unit would pay (RCW 36.70A.681).
     </p>
     <table>
       <thead>
-        <tr><th>Jurisdiction</th><th>Permit fees and charges</th></tr>
+        <tr><th>Jurisdiction</th><th>Permit fees and charges (2026)</th></tr>
       </thead>
       <tbody>
         <tr>
           <td>City of Spokane</td>
-          <td><Verify item="City of Spokane ADU permit fees and any system development charges" source={feeSrcCity} /></td>
+          <td>
+            Water GFC: 3,366 dollars for a 5/8 inch meter (typical for an ADU), 8,415 dollars for 1
+            inch, 26,930 dollars for 2 inch. Transportation impact fee for an ADU: about 106 dollars
+            in the high-density transit core, up to roughly 1,000 dollars farther out (SMC 17D.075).
+            Building permit fee is valuation-based, so use the city estimator. Sewer GFC (2026, phased,
+            final step this year): <Verify item="the exact 2026 sewer GFC amount" source="https://my.spokanecity.org/publicworks/general-facilities-charges/" />
+          </td>
         </tr>
         <tr>
           <td>Unincorporated Spokane County</td>
@@ -121,7 +128,10 @@ const faqItems = [
         </tr>
         <tr>
           <td>Spokane Valley</td>
-          <td><Verify item="Spokane Valley ADU permit fees and any applicable charges" source={feeSrcValley} /></td>
+          <td>
+            Exempts ADUs from impact fees. Other permit and connection fees:
+            <Verify item="Spokane Valley ADU permit and connection fees on the city master fee schedule" source={feeSrcValley} />
+          </td>
         </tr>
       </tbody>
     </table>
@@ -152,9 +162,11 @@ const faqItems = [
 
   <References
     sources={[
-      { label: 'City of Spokane fee schedule (my.spokanecity.org)', href: 'https://my.spokanecity.org', note: 'Permit fees and any system development charges.' },
-      { label: 'Spokane County Building and Planning (spokanecounty.gov)', href: 'https://www.spokanecounty.gov', note: 'County permit fees.' },
-      { label: 'City of Spokane Valley (spokanevalleywa.gov)', href: 'https://www.spokanevalleywa.gov', note: 'Spokane Valley fees.' },
+      { label: 'City of Spokane residential fee estimator (my.spokanecity.org)', href: 'https://my.spokanecity.org/business/residential/fee-calculators/', note: 'Valuation-based building permit fee for an ADU.' },
+      { label: 'City of Spokane general facilities charges (my.spokanecity.org)', href: 'https://my.spokanecity.org/publicworks/general-facilities-charges/', note: 'Water and sewer GFC schedule and zone map.' },
+      { label: 'Spokane County Building and Planning (spokanecounty.gov)', href: 'https://www.spokanecounty.gov/720/Codes-Ordinances', note: 'County permit fees.' },
+      { label: 'City of Spokane Valley residential building permits (spokanevalleywa.gov)', href: 'https://www.spokanevalleywa.gov/242/Residential-Building-Permits', note: 'Spokane Valley master fee schedule; ADUs exempt from impact fees.' },
+      { label: 'RCW 36.70A.681 (app.leg.wa.gov)', href: 'https://app.leg.wa.gov/RCW/default.aspx?cite=36.70A.681', note: 'HB 1337 caps ADU impact fees at 50 percent of the principal unit.' },
     ]}
   />
 
