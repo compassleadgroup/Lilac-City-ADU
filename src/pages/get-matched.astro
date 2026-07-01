@@ -1,9 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import PageHero from '../components/PageHero.astro';
 import MatchForm from '../components/MatchForm.astro';
 import { SITE } from '../config';
+import matchImage from '../assets/images/spokane-backyard-adu-cottage-1920w.webp';
 
 const path = '/get-matched';
 const title = 'Get Matched with a Spokane ADU Builder';
@@ -12,11 +13,32 @@ const description =
 ---
 <BaseLayout title={title} description={description} path={path}>
   <Breadcrumbs items={[{ label: 'Get matched', href: path }]} />
-  <PageHero
-    eyebrow="Get matched"
-    title="Get matched with a licensed local Spokane ADU builder"
-    lede="Share a few details about your lot and project. We connect you with a licensed local builder who serves your jurisdiction. It is free to you, we are paid by the builder, and there is no obligation."
-  />
+  <section class="bg-paper">
+    <div class="container-page grid items-center gap-8 py-10 sm:py-14 lg:grid-cols-2">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-wider text-ponderosa">Get matched</p>
+        <h1 class="mt-2 text-3xl font-semibold sm:text-4xl">
+          Get matched with a licensed local Spokane ADU builder
+        </h1>
+        <p class="mt-4 max-w-xl text-lg text-basalt-soft">
+          Share a few details about your lot and project. We connect you with a licensed local builder
+          who serves your jurisdiction. It is free to you, we are paid by the builder, and there is no
+          obligation.
+        </p>
+      </div>
+      <div class="overflow-hidden rounded-xl border border-wheat">
+        <Image
+          src={matchImage}
+          alt="Backyard accessory dwelling unit cottage in Spokane, Washington"
+          widths={[480, 768, 1024, 1280]}
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          loading="lazy"
+          decoding="async"
+          class="h-full w-full object-cover"
+        />
+      </div>
+    </div>
+  </section>
 
   <MatchForm id="primary-match" />
 
