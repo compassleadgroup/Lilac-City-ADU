@@ -1,10 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import PageHero from '../../components/PageHero.astro';
 import LinkCard from '../../components/LinkCard.astro';
 import GetMatchedCta from '../../components/GetMatchedCta.astro';
 import { SITE } from '../../config';
+import detachedImage from '../../assets/images/spokane-garden-adu-cottage-1920w.webp';
 
 const path = '/services/detached-adu';
 const title = 'New Detached ADU';
@@ -30,6 +32,20 @@ const schema = {
     cta={{ href: '/get-matched', label: 'Get matched with a builder' }}
     secondary={{ href: '/guides/adu-cost-spokane', label: 'See ADU cost' }}
   />
+
+  <section class="container-page pt-2 pb-6">
+    <div class="overflow-hidden rounded-xl border border-wheat">
+      <Image
+        src={detachedImage}
+        alt="Detached backyard accessory dwelling unit in Spokane, Washington"
+        widths={[480, 768, 1024, 1440]}
+        sizes="(max-width: 1152px) 100vw, 1152px"
+        loading="lazy"
+        decoding="async"
+        class="aspect-[16/9] w-full object-cover"
+      />
+    </div>
+  </section>
 
   <section class="container-prose rich-text pb-4">
     <h2>What a detached ADU is</h2>

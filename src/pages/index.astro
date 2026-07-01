@@ -1,9 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PageHero from '../components/PageHero.astro';
+import { Image } from 'astro:assets';
+import Button from '../components/Button.astro';
 import LinkCard from '../components/LinkCard.astro';
 import GetMatchedCta from '../components/GetMatchedCta.astro';
 import { SITE, SERVICES, JURISDICTIONS, GUIDES } from '../config';
+import heroImage from '../assets/images/spokane-modern-detached-adu-1920w.webp';
 
 const steps = [
   {
@@ -58,13 +60,38 @@ const serviceSchema = {
   path="/"
   schema={serviceSchema}
 >
-  <PageHero
-    eyebrow="Spokane metro ADU matching"
-    title="Get matched with a licensed local Spokane ADU builder"
-    lede="Lilac City ADU connects homeowners across the City of Spokane, unincorporated Spokane County, and Spokane Valley with licensed local ADU builders. It is free to you. We are paid by the builder, not by you."
-    cta={{ href: '/get-matched', label: 'Get matched' }}
-    secondary={{ href: '/guides/can-i-build-an-adu-spokane', label: 'Can I build an ADU?' }}
-  />
+  <section class="bg-paper">
+    <div class="container-page grid items-center gap-8 py-10 sm:py-14 lg:grid-cols-2">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-wider text-ponderosa">
+          Spokane metro ADU matching
+        </p>
+        <h1 class="mt-2 text-3xl font-semibold sm:text-4xl">
+          Get matched with a licensed local Spokane ADU builder
+        </h1>
+        <p class="mt-4 max-w-xl text-lg text-basalt-soft">
+          Lilac City ADU connects homeowners across the City of Spokane, unincorporated Spokane
+          County, and Spokane Valley with licensed local ADU builders. It is free to you. We are paid
+          by the builder, not by you.
+        </p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <Button href="/get-matched">Get matched</Button>
+          <Button href="/guides/can-i-build-an-adu-spokane" variant="ghost">Can I build an ADU?</Button>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-xl border border-wheat">
+        <Image
+          src={heroImage}
+          alt="Modern detached accessory dwelling unit in Spokane, Washington"
+          widths={[480, 768, 1024, 1280]}
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          loading="eager"
+          fetchpriority="high"
+          class="h-full w-full object-cover"
+        />
+      </div>
+    </div>
+  </section>
 
   <!-- What this is -->
   <section class="bg-paper">
