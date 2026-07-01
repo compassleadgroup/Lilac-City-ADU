@@ -14,6 +14,10 @@ If the niche, design system, or repo name does not match, STOP and ask the opera
 
 ENTITY for all disclosures: Compass Camper LLC, operating publicly as Compass Lead Group.
 
+Before adding, replacing, or wiring any image or visual asset, read the
+"Image and Visual Asset Standards" section of COMPLIANCE_STANDARDS.md and
+apply it without exception.
+
 ---
 
 ## HARD GUARDRAILS (non-negotiable)
